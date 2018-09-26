@@ -5,13 +5,13 @@
 				<div class="card-body cardBody">
 					<h4>LOGIN</h4>
 
-					<form class="formUser"  action="" name="iniciosesion" method="POST">
-						<input class="form-control" type="text" name="usuarioIngreso"  placeholder="Ingrese Usuario" id="formulario"  size="50" required autofocus>
+					<form class="formLogin"  action="" name="iniciosesion" method="POST">
+						<input class="form-control formUser" type="text" name="usuarioIngreso"  placeholder="Ingrese Usuario" id="formulario"  size="50" required autofocus>
 
 						<!-- <input class="form-control" name="user" type="text" placeholder="Ingrese Usuario" autofocus> -->
 
 
-						<input class="form-control" type="password" name="passwordIngreso" placeholder="Ingrese Contraseña" size="50" required>
+						<input class="form-control formPass" type="password" name="passwordIngreso" placeholder="Ingrese Contraseña" size="50" required>
 						<!-- <input class="form-control" name="password" type="text" placeholder="Ingrese Contraseña"> -->
 
 					<button class="btn btn-primary btnLogin"  type="submit" id="btnvalidar" value="Ingresar">Ingresar</button>

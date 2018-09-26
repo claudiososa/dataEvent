@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="masthead">
+<!-- <header class="masthead">
     <div class="container">
   <img class="img-fluid" src="img/escudo.png" alt="EscudoColegio5159">
         <div class="intro-text">
@@ -7,7 +7,7 @@
             <hr class="star-light">
         </div>
     </div>
-</header>
+</header> -->
 
 <?php
 
@@ -17,8 +17,8 @@ if(isset($_SESSION["typeUser"])){
       case 'Preceptor/a':
             include "views/modules/person/inicioPreceptor.php";
             break;
-      case 'Director/a':
-            include "views/modules/person/inicioDirector.php";
+      case 'operador':
+            include "views/modules/person/inicioOperador.php";
             break;
 
       default:
