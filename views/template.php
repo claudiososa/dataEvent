@@ -12,6 +12,19 @@
     <script src="views/js/pooper.min.js" type="text/javascript"></script>
     <script src="views/bootstrap/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="views/js/loginJs.js"></script>
+    <style media="screen">
+
+    input.form-control.formUser:-webkit-autofill {
+    	-webkit-box-shadow: 0 0 0 30px white inset;
+    }
+
+
+    input.form-control.formPass:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px white inset;
+
+    }
+    </style>
+
   </head>
 
 <body>
