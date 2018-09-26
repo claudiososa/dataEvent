@@ -17,13 +17,8 @@ class MvcController{
 	public function enlacesPaginasController(){
 
 		if(isset( $_GET['action'])){
-
 			$enlaces = $_GET['action'];
-
-		}
-
-		else{
-
+		}else{
 			$enlaces = "index";
 		}
 

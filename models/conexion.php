@@ -2,8 +2,8 @@
  class Conexion extends PDO {
    private $tipo_de_base = 'mysql';
    private $host = 'localhost';
-   private $nombre_de_base = 'vicomser_pdo';
-   private $usuario = 'vicomser_pdo';
+   private $nombre_de_base = 'vicomser_dataevent';
+   private $usuario = 'vicomser_dataevent';
    private $contrasena = 'Vicomser.c79';
    public function __construct() {
       //Sobreescribo el método constructor de la clase PDO.
