@@ -2,6 +2,20 @@ body{
   background: linear-gradient(to right, #2193B0, #6DD5ED);
 
 }
+/*.navbar{
+  background: white;
+  color: #003764;
+  font-weight: bold;
+  padding: 1rem 5rem;
+}
+.navbar-brand{
+    font-size: 1.25rem;
+}
+.salir{
+font-size: 1.25rem;
+
+}*/
+
 /*******LOGIN*****/
 
 .cardBody h4{
@@ -10,6 +24,33 @@ body{
   font-weight: bold;
   margin-bottom: 1.5rem;
 
+}
+.formUser{
+  color:#003764;
+  border: 2px solid;
+  /*color: #003764;*/
+  margin-bottom: 20px;
+  border-style: solid;
+  border-radius: 18px;
+  padding: 5px 25px;
+  background-image: url('/img/img/man-user.svg');
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+}
+
+
+.formPass{
+  color:#003764;
+  border: 2px solid;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-radius: 18px;
+  padding: 5px 25px;
+  background-image: url('/img/img/locked-padlock.svg');
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
 .panelLogin{
   /*border:1px solid yellow;*/
@@ -23,33 +64,17 @@ body{
   justify-content: center;
   align-items: center;*/
 }
-.formUser input{
-  color:#003764;
-  border: 2px solid;
-  /*color: #003764;*/
-  margin-bottom: 20px;
-  border-style: solid;
-  border-radius: 18px;
-  padding: 5px 25px;
-  background-image: url('../img/man-user.svg');
-  background-size: 1.25rem;
-  background-repeat: no-repeat;
-  background-position-y: center;
-}
-
-
-.formPass input{
-  color:#003764;
-  border: 2px solid;
-  margin-bottom: 20px;
-  border-style: solid;
-  border-radius: 18px;
-  padding: 5px 25px;
-  background-image: url('../img/locked-padlock.svg');
-  background-size: 1.25rem;
-  background-repeat: no-repeat;
-  background-position-y: center;
-}
+/*.panelLogin{
+    position: relative;
+    padding: 20px 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgba(0,0,0,.5);
+    overflow: hidden;
+    text-align: center;
+    z-index: 5;
+}*/
 
 /*bordes de input al hacer focus*/
 
@@ -91,38 +116,77 @@ body{
 }
 /*******LOGIN*****/
 
+/*******WELCOME*******/
+
+.containerWelcome{
+
+  /*border:5px solid blue;*/
+  max-width: 680px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.containerWelcome h1,h3{
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.cardEvents{
+  padding: 0;
+  position: relative;
+  text-align: center;
+
+}
+.cardEvents li{
+  color: #2193B0;
+  font-weight: bold;
+  font-size: 1.1rem;
+
+}
+
+/*******WELCOME*******/
+
 
 
 /*media queries*/
 
 @media screen and (max-width:1024px) {
+  /*******LOGIN*****/
   body {
-    /*border:5px solid pink;*/
+    border:5px solid pink;
     font-size: 1.6rem;
   }
+  /*******LOGIN*****/
 }
 
 @media screen and (max-width:767px){
+  /*******LOGIN*****/
   body {
-    /*border:5px solid red;*/
+    border:5px solid red;
     font-size: 1.4rem;
   }
+  /*******LOGIN*****/
 }
 
 /*mi cel :p*/
 @media screen and (max-width:480px) {
+  /*******LOGIN*****/
   body {
-    /*border:5px solid blue;*/
+    border:5px solid blue;
     font-size: 0.5rem;
   }
-
+  /*******LOGIN*****/
 }
 
 @media screen and (max-width:320px) {
+  /*******LOGIN*****/
   body{
-    /*border: 5px solid green;*/
+    border: 5px solid green;
     font-size: 0.5rem;
 
   }
+  /*******LOGIN*****/
 
 }
