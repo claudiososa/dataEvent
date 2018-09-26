@@ -2,19 +2,23 @@ body{
   background: linear-gradient(to right, #2193B0, #6DD5ED);
 
 }
-/*.navbar{
+.navbar{
   background: white;
   color: #003764;
   font-weight: bold;
-  padding: 1rem 5rem;
+  padding: 0.1rem 5rem;
 }
 .navbar-brand{
     font-size: 1.25rem;
 }
+li.nav-item a{
+  font-size: 0.9rem;
+  color: #003764;
+}
 .salir{
 font-size: 1.25rem;
 
-}*/
+}
 
 /*******LOGIN*****/
 
@@ -33,7 +37,7 @@ font-size: 1.25rem;
   border-style: solid;
   border-radius: 18px;
   padding: 5px 25px;
-  background-image: url('/img/img/man-user.svg');
+  /*background-image: url('/img/7119.jpg');*/
   background-size: 1.25rem;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -47,7 +51,7 @@ font-size: 1.25rem;
   border-style: solid;
   border-radius: 18px;
   padding: 5px 25px;
-  background-image: url('/img/img/locked-padlock.svg');
+  /*background-image: url(/img/img/locked-padlock.svg);*/
   background-size: 1.25rem;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -144,6 +148,10 @@ font-size: 1.25rem;
   font-weight: bold;
   font-size: 1.1rem;
 
+}
+.cardEvents li a{
+  color: #2193B0;
+  text-decoration: none;
 }
 
 /*******WELCOME*******/

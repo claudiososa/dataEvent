@@ -5,16 +5,16 @@
 
       <div class="card cardEvents" >
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
+          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
 
           </li>
-          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
+          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
 
           </li>
-          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
+          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
 
           </li>
-          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
+          <li class="list-group-item"><a href="index.php?action=acreditacion">CONGRESO XXVIII C.I.E.Na.Su.D. 2018 <img src="img/7119.jpg" style="max-height:3rem;" class="img-fluid" alt="logo-cienasud2018"></a>
 
           </li>
 
