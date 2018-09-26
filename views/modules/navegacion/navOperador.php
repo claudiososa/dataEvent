@@ -1,15 +1,14 @@
+<nav class="navbar navbar-expand-lg">
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-
-	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-		<a class="navbar-brand" href="index.php">5159</a>
+		<a class="navbar-brand logo">DataEvent</a>
 
 
+<div class="collapse navbar-collapse" id="navbarText">
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 
 		<?php
@@ -41,19 +40,20 @@
 		</li>
 
 
-		<li class="nav-item"><a class="nav-link"href="index.php?action=salir">Cerrar Sesión</a></li>
-		<li class="nav-item"><a class="nav-link"href='#'>
+		<!-- <li class="nav-item"><a class="nav-link"href="index.php?action=salir">Cerrar Sesión</a></li> -->
+
 
 		<?php
 
 
 		if(isset($_SESSION["typeUser"])){
-			echo 'Tipo de usuario: '.$_SESSION["typeUser"];
+			echo '<li class="nav-item"><a class="nav-link">Tipo de usuario: '.$_SESSION["typeUser"].'</a></li>';
 
 		}
 		 ?>
 	 </a></li>
 	</ul>
+	  <span class="navbar-text"><a class="nav-link"href="index.php?action=salir"><img class="img-fluid" alt="icono-off"style="max-width:1.25rem;" src="img/boton-de-apagado.svg"></a></span>
 </div>
 
 </nav>
