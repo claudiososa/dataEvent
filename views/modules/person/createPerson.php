@@ -3,7 +3,7 @@
 
 <?php
 
-if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'Preceptor/a'){
+if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 	header("location:index.php?action=ingresar");
 	exit();
 }

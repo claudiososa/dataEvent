@@ -10,7 +10,7 @@ class Paginas{
 
 			$module =  "views/modules/".$enlaces.".php";
 
-		}elseif($enlaces == "searchPerson" || $enlaces == "createPerson" || $enlaces == "editarPerson" || $enlaces == "searchPersonDirector"){
+		}elseif($enlaces == "acreditacion" || $enlaces == "createPerson" || $enlaces == "editarPerson" || $enlaces == "searchPersonDirector"){
 
 			$module =  "views/modules/person/".$enlaces.".php";
 
@@ -51,7 +51,7 @@ class Paginas{
 		}else{
 
 			$module =  "views/modules/registro.php";
-			
+
 		}
 
 		return $module;
