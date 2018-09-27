@@ -18,7 +18,7 @@ class Person extends Conexion{
     $stmt->bindParam(":movil",$datosModel["movil"],PDO::PARAM_STR);
     $stmt->bindParam(":email",$datosModel["email"],PDO::PARAM_STR);
     $stmt->bindParam(":address",$datosModel["address"],PDO::PARAM_STR);
-//var_dump($datosModel);
+
   if($stmt->execute()){
 
     $lastId = $conexion->lastInsertId();
@@ -91,6 +91,38 @@ class Person extends Conexion{
   //WHERE firstname LIKE '%'
   //AND   users.type ='Docente' AND users.status='Inactivo'
   //
+
+public function searchDNIModel($dni,$tabla,$type=NULL){
+
+    $conexion = new Conexion();
+    $sentencia = 'SELECT * FROM '.$tabla.' JOIN users ON (users.user_name = persons.dni)';
+    $sentencia .=' WHERE';
+
+    if($dni <>''){
+      $sentencia.=' dni = :dni ';
+    }
+
+    $sentencia.='  ORDER BY person_id';
+
+    $stmt = $conexion->prepare($sentencia);
+    $dniListo=trim($dni);
+    if($dni<>""){
+      $stmt->bindParam(':dni',$dniListo, PDO::PARAM_STR);
+    }
+    $stmt->execute();
+
+    $result = $stmt->fetchAll();
+    //var_dump($stmt);
+    if (empty($result)) {
+      return 0;
+    }else{
+      return $result;
+    }
+
+    $stmt->close();
+  }
+
+
   public function searchPersonModel($datos,$tabla,$type=NULL){
     $conexion = new Conexion();
     $sentencia = 'SELECT * FROM '.$tabla.' JOIN users ON (users.user_name = persons.dni)';
@@ -142,12 +174,6 @@ class Person extends Conexion{
 
     $sentencia.='  ORDER BY person_id';
 
-
-    //WHERE lastname LIKE :lastname OR firstname LIKE :firstname';
-
-
-
-
     $stmt = $conexion->prepare($sentencia);
     $lastname='%'.trim($datos['lastname']).'%';
     $firstname='%'.trim($datos['firstname']).'%';
@@ -167,9 +193,15 @@ class Person extends Conexion{
     //$stmt->bindParam(':lastname',"%$datos['lastname']%");
 
     $stmt->execute();
-    //var_dump($stmt);
 
-    return $stmt->fetchAll();
+    $result = $stmt->fetchAll();
+    //var_dump($stmt);
+    if (empty($result)) {
+      return 0;
+    }else{
+      return $result;
+    }
+
     $stmt->close();
   }
 
@@ -236,6 +268,25 @@ class Person extends Conexion{
 
       $stmt->close();
     }
+
+    //Actualizar confirmacion de datos
+    //************************************************
+    public function actualizarConfirmarDatos($personaId,$tabla){
+      $confirmation = 'si';
+      $conexion = new Conexion();
+      $stmt = $conexion->prepare("UPDATE $tabla SET confirmation =:confirmation
+        WHERE person_id=:person_id");
+        $stmt->bindParam(":person_id",$personaId,PDO::PARAM_INT);
+        $stmt->bindParam(":confirmation",$confirmation,PDO::PARAM_STR);
+
+    if($stmt->execute()){
+        return "success";
+      }else{
+        return "error";
+      }
+      $stmt->close();
+
+     }
 
     //Actualizar usuarios
     //************************************************

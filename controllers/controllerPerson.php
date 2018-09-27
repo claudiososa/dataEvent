@@ -1,4 +1,5 @@
 <?php
+//require_once "../models/crudPerson.php";
 
 class ControllerPerson{
 
@@ -52,6 +53,13 @@ class ControllerPerson{
 					return $result;
 				}
 				break;
+				case 'dni':
+					if(isset($_POST['searchPersonSubmit'])){
+						$datosController = $_POST['dni'];
+						$result = Person::searchDNIModel($datosController,'persons');
+						return $result;
+					}
+					break;
 				case 'inscription':
 					if(isset($_POST['searchPersonSubmit'])){
 						$datosController = array (
@@ -157,6 +165,20 @@ class ControllerPerson{
 		//echo $respuesta[1];
 		//return $respuesta;
 		//var_dump($respuesta);
+	}
+
+	/**
+	 * cambiar confirmacion  de datos a 'si'
+	 */
+
+	public function actualizarConfirmarDatos($personId){
+		$actualizar = Person::actualizarConfirmarDatos($personId,"persons");
+		//return $personId."actualizar";
+		if($actualizar == "success"){
+			return 'success';
+		}else {
+			return "error";
+		}
 	}
 
 	// Actualizar usuarios
