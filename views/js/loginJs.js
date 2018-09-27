@@ -1,14 +1,14 @@
 
 $(document).ready(function() {
+
   var estado = 0
-  //swal('DataEvent','Se confirmaron los datos correctamente','success')
+
   $("#confirmaDatos").click(function(event) {
     var personId = $("#personIdEditar").val();
-    //alert (personId)
-    //var estado = '0'
-
+    var estado = 'no'
 
     function  confirmarDatos(personId){
+      estado = 'si'
       return new Promise((resolve,reject) => {
         $.ajax({
           url: 'views/modules/ajax/ajaxPerson.php',
@@ -29,23 +29,20 @@ $(document).ready(function() {
       })
     }
 
-    // debugger
-    // if (estado =='1') {
-    //   alert('estado es 1')
-    // } else{
-    //   alert('estado es 0')
-    // }
-
-
+    //debugger
     confirmarDatos(personId)
       .then(function (data){
-        estado = '1'
-        alert('se confirmo con exito')
-        //swal('Platzi','Felicitaciones, ganaste el juego','success')
+        //alert(data)
+        //window.location.href = "http://localhost/dataEvent/index.php?action=acreditacion";
+        //console.log('se confirmo');
+        //alert('se confirmo con exito')
+        swal('EventManager','Datos confirmado con EXITO','success')
       })
-      .catch(onError)
+      .catch(error=> console.log(error + ' Noooo'))
+      //.catch(onError)
 
 
+    //swal('Platzi','Felicitaciones, ganaste el juego','success')
 
   });
 

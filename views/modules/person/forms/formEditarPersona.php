@@ -33,40 +33,8 @@
 
   <div class="form-group" align="center">
     <button type="submit" class="btn btn-primary" id="submitRegistro" value="Guardar">Guardar</button>
-    <button class="btn btn-primary" id="confirmaDatos" value="Confirmar">Confirmar Datos</button>
+
   </div>
 </form>
-<!--
-<div class="form-group">
-  <label  for="cuilRegistro">CUIL:</label>
 
-    <input type="text" class="form-control" placeholder="CUIL" name="cuilRegistro" maxlength="15"
-    value='26899909'			  id="cuilRegistro" required>
-
-</div> -->
-
-<!-- <div class="form-group">
-<label class="control-label" for="birthdayRegistro">Fecha Nac:</label>
-
-    <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="birthdayRegistro"
-    value='2018-09-03'			 id="birthdayRegistro" >
-
-</div> -->
-
-<!-- <div class="form-group">
-<label class="control-label" for="sexoRegistro">Sexo:</label>
-
-    <select class="form-control" name="sexoRegistro" id="sexoRegistro">
-      <option value="M" selected>Masculino</option><option value="F">Femenino</option>
-    </select>
-
-
-</div> -->
-
-<!-- <div class="form-group">
-  <label class="control-label" for="phoneRegistro">Telefono Fijo</label>
-
-    <input type="text" class="form-control" placeholder="Teléfono Fijo" name="phoneRegistro" maxlength="15"
-    value='44'			  id="phoneRegistro">
-
-</div> -->
+<button class="btn btn-primary" id="confirmaDatos" value="Confirmar">Confirmar Datos</button>
