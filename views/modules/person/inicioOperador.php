@@ -1,5 +1,5 @@
   <div class="container containerWelcome">
-    <h1>Welcome Human!</h1>
+    <!-- <h1>Welcome Human!</h1> -->
     <h3>Plase, select an Event:</h3>
 
 

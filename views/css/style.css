@@ -7,14 +7,24 @@ body{
   color: #003764;
   font-weight: bold;
   padding: 0.1rem 5rem;
+  height: 3.5rem;
+  /*height: auto;*/
+}
+.navbar-toggler-icon{
+
+  background-image: url('../../img/menu.svg');
 }
 .navbar-brand{
     font-size: 1.25rem;
+
 }
 li.nav-item a{
   font-size: 0.9rem;
   color: #003764;
 }
+/*img.img-fluid.menu{
+  margin-top: 0.8rem;
+}*/
 .salir{
 font-size: 1.25rem;
 
@@ -128,7 +138,7 @@ font-size: 1.25rem;
   max-width: 680px;
     margin: auto;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .containerWelcome h1,h3{
   color: white;
@@ -160,22 +170,67 @@ font-size: 1.25rem;
 
 /*media queries*/
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:991px) {
   /*******LOGIN*****/
   body {
     border:5px solid pink;
     font-size: 1.6rem;
   }
-  /*******LOGIN*****/
+
+  /*navbar*/
+  .navbar{
+    min-height: 3rem;
+
+    height: auto;
+  }
+  /*.navbar-collapse{
+    height: 0;
+  }*/
+  li.nav-item{
+    border-top: 1px solid;
+
+  }
+  a.nav-link{
+    text-align: center;
+  }
+.containerWelcome{
+  margin-top: 1.25rem;
+}
+  /*img.img-fluid.menu{
+margin: 0;
+padding: 0;
+border-top: 1px solid;
+
+  }*/
+
+
+  /*nabvar*/
+
 }
 
 @media screen and (max-width:767px){
-  /*******LOGIN*****/
+
   body {
     border:5px solid red;
     font-size: 1.4rem;
   }
-  /*******LOGIN*****/
+  .navbar{
+
+padding-left: 1.8rem;
+padding-right: 1.8rem;
+
+  }
+  button.navbar-toggler{
+      padding: 0;
+    }
+  .containerWelcome{
+    margin: auto;
+  }
+  .containerWelcome h3{
+    padding-top: 1.25rem;
+    margin-bottom: 0;
+  }
+
 }
 
 /*mi cel :p*/
@@ -185,7 +240,25 @@ font-size: 1.25rem;
     border:5px solid blue;
     font-size: 0.5rem;
   }
+
   /*******LOGIN*****/
+  .navbar{
+
+padding-left: 1rem;
+padding-right: 1rem;
+
+  }
+  button.navbar-toggler{
+      padding: 0;
+    }
+  .containerWelcome h3{
+    padding-top: 1.25rem;
+    margin-bottom: 0;
+    font-size: 1.25rem;
+  }
+  .cardEvents a{
+    font-size: 1rem;
+  }
 }
 
 @media screen and (max-width:320px) {
@@ -196,5 +269,19 @@ font-size: 1.25rem;
 
   }
   /*******LOGIN*****/
+  .navbar{
 
+padding-left: 0.8rem;
+padding-right: 0.8rem;
+
+  }
+button.navbar-toggler{
+    padding: 0;
+  }
+  .containerWelcome h3{
+font-size: 1rem;
+  }
+  .cardEvents a{
+    font-size: 1rem;
+  }
 }
