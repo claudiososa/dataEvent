@@ -6,10 +6,10 @@
       <form method="post" onsubmit="return validarRegistro()" class="formPerson">
         <input type="hidden" id="personIdEditar" name="personIdEditar" value='<?php echo $item["person_id"] ?>'>
 
-<h3>Datos Encontrados:</h3>
+        <h3>Datos Encontrados:</h3>
         <div class="form-group">
           <!-- <label for="dniRegistro">DNI:</label> -->
-          <input type="text" class="form-control personDni" placeholder="DNI" name="dniRegistro" maxlength="8"  value='26899909'	id="dniRegistro" required>
+          <input type="text" class="form-control personDni" placeholder="DNI" name="dniRegistro" maxlength="8"  value='<?php echo $item["dni"] ?>'	id="dniRegistro" readonly required>
         </div>
 
         <div class="form-group">
@@ -34,29 +34,62 @@
           <!-- Editar -->
         <div class="form-inline">
           <label for="direccionRegistro">Provincia</label>
-          <input type="text" class="form-control" placeholder="Provincia" name="addressRegistro" value='<?php echo $item["address"] ?>' id="addressRegistro" >
+          <select class="form-control personProvincia" id="">
+             <option value="Buenos Aires">Bs. As.</option>
+             <option value="Catamarca">Catamarca</option>
+             <option value="Chaco">Chaco</option>
+             <option value="Chubut">Chubut</option>
+             <option value="Cordoba">Cordoba</option>
+             <option value="Corrientes">Corrientes</option>
+             <option value="Entre Rios">Entre Rios</option>
+             <option value="Formosa">Formosa</option>
+             <option value="Jujuy">Jujuy</option>
+             <option value="La Pampa">La Pampa</option>
+             <option value="La Rioja">La Rioja</option>
+             <option value="Mendoza">Mendoza</option>
+             <option value="Misiones">Misiones</option>
+             <option value="Neuquen">Neuquen</option>
+             <option value="Rio Negro">Rio Negro</option>
+             <option value="Salta">Salta</option>
+             <option value="San Juan">San Juan</option>
+             <option value="San Luis">San Luis</option>
+             <option value="Santa Cruz">Santa Cruz</option>
+             <option value="Santa Fe">Santa Fe</option>
+             <option value="Sgo. del Estero">Sgo. del Estero</option>
+             <option value="Tierra del Fuego">Tierra del Fuego</option>
+             <option value="Tucuman">Tucuman</option>
+          </select>
         </div>
 
         <div class="form-inline">
           <label for="direccionRegistro">Localidad</label>
-          <input type="text" class="form-control" placeholder="Localidad" name="addressRegistro" value='<?php echo $item["address"] ?>' id="addressRegistro" >
+          <input type="text" class="form-control" placeholder="Localidad" name="addressRegistro" value='<?php echo $item["address"] ?>' id="" >
         </div>
         <div class="form-inline">
           <label for="direccionRegistro">Tipo</label>
-          <input type="text" class="form-control" placeholder="Tipo" name="addressRegistro" value='<?php echo $item["address"] ?>' id="addressRegistro" >
+          <select class="form-control" id="">
+            <option value="1">Supervisor</option>
+            <option value="2">Profesor</option>
+
+          </select>
         </div>
         <div class="form-inline">
           <label for="direccionRegistro">Nivel</label>
-          <input type="text" class="form-control" placeholder="Nivel" name="addressRegistro" value='<?php echo $item["address"] ?>' id="addressRegistro" >
+          <select class="form-control" id="">
+            <option value="1">Privado</option>
+            <option value="2">Estatal</option>
+
+          </select>
         </div>
 
-        <div class="form-group" align="center">
+        <!-- <div class="form-group" align="center">
           <button type="submit" class="btn btn-primary" id="submitRegistro" value="Guardar">Guardar</button>
 
-        </div>
+        </div> -->
       </form>
 
       <button class="btn btn-primary" id="confirmaDatos" value="Confirmar">Confirmar Datos</button>
+      <button class="btn btn-primary" id="tomarAsistencia" value="Asistencia">Presente</button>
 
     </div>
   </div>

@@ -280,7 +280,13 @@ input.form-control.personPhone{
 
 
 /*media queries*/
+@media screen and (max-width:1919px) {
+  body{
 
+    border:5px solid orange;
+    font-size: 1.6rem;
+  }
+}
 @media screen and (max-width:991px) {
   /*******LOGIN*****/
   body {
