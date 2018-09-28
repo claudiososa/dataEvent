@@ -7,14 +7,24 @@ body{
   color: #003764;
   font-weight: bold;
   padding: 0.1rem 5rem;
+  height: 3.5rem;
+  /*height: auto;*/
+}
+.navbar-toggler-icon{
+
+  background-image: url('../../img/menu.svg');
 }
 .navbar-brand{
     font-size: 1.25rem;
+
 }
 li.nav-item a{
   font-size: 0.9rem;
   color: #003764;
 }
+/*img.img-fluid.menu{
+  margin-top: 0.8rem;
+}*/
 .salir{
 font-size: 1.25rem;
 
@@ -128,7 +138,7 @@ font-size: 1.25rem;
   max-width: 680px;
     margin: auto;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .containerWelcome h1,h3{
   color: white;
@@ -157,25 +167,188 @@ font-size: 1.25rem;
 /*******WELCOME*******/
 
 
+/*******FORM EDIT PERSON*****/
+.containerPerson{
+
+  /*border:5px solid blue;*/
+  max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+
+}
+/*div .cardFormPerson{
+  max-width: 1000px;
+
+}*/
+div .card.cardFormPerson{
+  max-width:1200px;
+  width: auto;
+  margin: auto;
+  border-radius: 15px;
+}
+div .card-body.cardBodyPerson{
+  padding: 30px 120px ;
+
+}
+.cardFormPerson h3{
+  color:  #003764;
+  font-size: 1.3rem;
+}
+div.formPerson,.form-group{
+
+  margin-bottom: 0;
+}
+input.form-control.personDni{
+  background-image: url('../../img/carnet-de-identidad.svg');
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  padding-left: 2rem;
+  color: #003764;
+  font-size: 1.3rem;
+  border-top: 0 ;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+input.form-control.personLastName{
+  background-image: url('../../img/man-user.svg');
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  padding: 2rem 0 1.5rem 2rem;
+  color: #003764;
+  font-size: 1.3rem;
+  border-top: 1px solid;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+input.form-control.personName{
+  background-image: url('../../img/man-user.svg');
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  padding: 2rem 0 1.5rem 2rem;
+
+  color: #003764;
+  font-size: 1.3rem;
+  border-top: 1px solid;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+input.form-control.personEmail{
+  background-image: url('../../img/gmail.svg');
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  padding: 2rem 0 1.5rem 2rem;
+
+  color: #003764;
+  font-size: 1.3rem;
+  border-top: 1px solid;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+
+}
+input.form-control.personPhone{
+  background-image: url('../../img/responder-llamada.svg');
+  background-size: 1.25rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  padding: 2rem 0 1.5rem 2rem;
+
+  color: #003764;
+  font-size: 1.3rem;
+  border-top: 1px solid;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+
+
+}
+/*******FORM EDIT PERSON*****/
+
+
 
 /*media queries*/
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:991px) {
   /*******LOGIN*****/
   body {
     border:5px solid pink;
     font-size: 1.6rem;
   }
-  /*******LOGIN*****/
+
+
+  .navbar{
+    min-height: 3rem;
+
+    height: auto;
+  }
+  /*.navbar-collapse{
+    height: 0;
+  }*/
+  li.nav-item{
+    border-top: 1px solid;
+
+  }
+  a.nav-link{
+    text-align: center;
+  }
+
+
+  /*******WELCOME*******/
+.containerWelcome{
+  margin-top: 1.25rem;
+}
+/*******WELCOME*******/
+  /*img.img-fluid.menu{
+margin: 0;
+padding: 0;
+border-top: 1px solid;
+
+  }*/
+
+
+
+
 }
 
 @media screen and (max-width:767px){
-  /*******LOGIN*****/
+
   body {
     border:5px solid red;
     font-size: 1.4rem;
   }
-  /*******LOGIN*****/
+  .navbar{
+
+padding-left: 1.8rem;
+padding-right: 1.8rem;
+
+  }
+  button.navbar-toggler{
+      padding: 0;
+    }
+
+    /*******WELCOME*******/
+  .containerWelcome{
+    margin: auto;
+  }
+  .containerWelcome h3{
+    padding-top: 1.25rem;
+    margin-bottom: 0;
+  }
+  /*******WELCOME*******/
+
 }
 
 /*mi cel :p*/
@@ -185,7 +358,28 @@ font-size: 1.25rem;
     border:5px solid blue;
     font-size: 0.5rem;
   }
+
   /*******LOGIN*****/
+  .navbar{
+
+padding-left: 1rem;
+padding-right: 1rem;
+
+  }
+  button.navbar-toggler{
+      padding: 0;
+    }
+
+    /*******WELCOME*******/
+  .containerWelcome h3{
+    padding-top: 1.25rem;
+    margin-bottom: 0;
+    font-size: 1.25rem;
+  }
+  .cardEvents a{
+    font-size: 1rem;
+  }
+  /*******WELCOME*******/
 }
 
 @media screen and (max-width:320px) {
@@ -196,5 +390,23 @@ font-size: 1.25rem;
 
   }
   /*******LOGIN*****/
+  .navbar{
 
+padding-left: 0.8rem;
+padding-right: 0.8rem;
+
+  }
+
+button.navbar-toggler{
+    padding: 0;
+  }
+
+  /*******WELCOME*******/
+.containerWelcome h3{
+  font-size: 1rem;
+  }
+.cardEvents a{
+  font-size: 1rem;
+  }
+  /*******WELCOME*******/
 }
