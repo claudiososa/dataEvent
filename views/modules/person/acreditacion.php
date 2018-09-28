@@ -30,64 +30,22 @@ if($_POST){
   $resultado = new ControllerPerson();
   $dato=$resultado->searchPersonController('dni');
 
-	echo '<div class="card">';
+
 	if ($dato == 0) {
 		echo "<p>Persona no encontrada, revise el numero DNI</p>";
 	}else{
 		//var_dump($dato);
 		foreach ($dato as $key => $item) {
 			require_once "forms/formEditarPersona.php";
-		}	
-		echo '<div class="table-responsive">';
-	  echo '<table class="table table-condensed">';
-	  echo '<thead>
-	              <tr>
-	                <th>Id</th>
-	                <th>Apellido</th>
-	                <th>Nombre</th>
-	                <th>DNI</th>
-	                <th>CUIL</th>
-	                <th>Tipo</th>
-	                <th>Curso</th>
-	                <th>Tutor1</th>
-	                <th>Tutor2</th>';
-	  foreach ($dato as $key => $item) {
-	    echo '<tr>
-	      <td>'.$item["person_id"].'</td>
-	      <td>'.$item["lastname"].'</td>
-	      <td>'.$item["firstname"].'</td>
-	      <td>'.$item["dni"].'</td>
-	      <td>'.$item["cuil"].'</td>
-	      <td>'.$item["type"].'</td>';
-	      echo '<td>';
-	      if($item["type"]=='Alumno'){
-	        $inscription = new ControllerCourse();
-	        //var_dump($inscription);
-	        $verificar = $inscription->searchStudentInCourseController($item["person_id"]);
-	        if($verificar){
-	          echo $verificar[0]['name'].' '.$verificar[0]['turn'];
-	        }else{
-	          echo "Sin Asignar";
-	        }
+		}
 
-	      }
-	      echo '</td>';
-	      echo '<td>tutor1</td>
-	      <td>tutor2</td>
-	      <td><a href="index.php?action=editarPerson&id='.$item["person_id"].'"><button class="btn btn-primary">Editar</button></a></td>';
-	      //echo ' <td><a href="index.php?action=person&idBorrar='.$item["person_id"].'"><button>Borrar</button></a></td>';
-	    echo '</tr>';
-	  }
-	  echo '</table>';
-		echo '</div>';
-		echo '</div';
 	}
 
 
 }
 ?>
 </div>
-</div>
+
 
 <script type="text/javascript">
 $(document).ready(function() {
