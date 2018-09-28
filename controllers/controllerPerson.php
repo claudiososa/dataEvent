@@ -147,25 +147,25 @@ class ControllerPerson{
 	public function editarPersonController(){
 		$datos = $_GET["id"];
 		$respuesta=Person::editarPersonModel($datos,"persons");
-		include_once 'views/modules/person/forms/formNewPerson.php';
-		/*echo '<input type="hidden" value="'.$respuesta["person_id"].'" name="person_IdEditar">
-					<input type="text" value="'.$respuesta["dni"].'" placeholder="DNI" name="dniEditar" required>
-          <input type="text" value="'.$respuesta["cuil"].'" placeholder="CUIL" name="cuilEditar" required>
-          <input type="text" value="'.$respuesta["lastname"].'" placeholder="Apellidos" name="lastnameEditar" required>
-          <input type="text" value="'.$respuesta["firstname"].'" placeholder="Nombres" name="firstnameEditar" required>
-          <input type="text" value="'.$respuesta["birthday"].'" placeholder="Fecha de Nacimiento" name="birthdayEditar" required>
-          <input type="text" value="'.$respuesta["sexo"].'" placeholder="Sexo" name="sexoEditar" required>
-          <input type="text" value="'.$respuesta["phone"].'" placeholder="Telefono Fijo" name="phoneEditar" required>
-          <input type="text" value="'.$respuesta["movil"].'" placeholder="Telefono Celular" name="movilEditar" required>
-					<input type="email" value="'.$respuesta["email"].'" placeholder="Email" name="emailEditar" required>
-          <input type="text" value="'.$respuesta["address"].'" placeholder="Dirección" name="addressEditar" required>
-
-					<input type="submit" value="Actualizar">
-		';*/
-		//echo $respuesta[1];
-		//return $respuesta;
-		//var_dump($respuesta);
+		include_once 'views/modules/person/forms/formNewPerson.php';	
 	}
+
+
+		//Actualizar Persona desde Pantalla de Confirmar datos
+		//*********************************************************
+		public function updatePersonController($arrayPerson){
+			$updatePerson = Person::updatePersonModel($arrayPerson,"persons");
+
+			if($updatePerson == "success"){
+				return 'success';
+			}else {
+				return "error";
+			}
+			//echo $respuesta;
+		//}
+	}
+
+
 
 	/**
 	 * cambiar confirmacion  de datos a 'si'

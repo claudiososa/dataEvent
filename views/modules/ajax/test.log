@@ -1,1 +1,16 @@
-string(7) "success"
+array(7) {
+  ["personId"]=>
+  string(1) "2"
+  ["lastname"]=>
+  string(6) "ABARZA"
+  ["firstname"]=>
+  string(15) "LOURDES CELESTE"
+  ["dni"]=>
+  string(8) "44447384"
+  ["email"]=>
+  string(5) "fafda"
+  ["movil"]=>
+  string(5) "44444"
+  ["location"]=>
+  string(15) "LOURDES CELESTE"
+}

@@ -269,6 +269,31 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
       $stmt->close();
     }
 
+
+  public function updatePersonModel($arrayPerson,$tabla){
+      $conexion = new Conexion();
+      $stmt = $conexion->prepare("UPDATE $tabla SET lastname=:lastname,firstname=:firstname,dni=:dni,email=:email,movil=:movil,location=:location
+        WHERE person_id=:person_id");
+        $stmt->bindParam(":person_id",$arrayPerson['personId'],PDO::PARAM_INT);
+        $stmt->bindParam(":lastname",$arrayPerson['lastname'],PDO::PARAM_STR);
+        $stmt->bindParam(":firstname",$arrayPerson['firstname'],PDO::PARAM_STR);
+        $stmt->bindParam(":dni",$arrayPerson['dni'],PDO::PARAM_INT);
+        $stmt->bindParam(":email",$arrayPerson['email'],PDO::PARAM_STR);
+        $stmt->bindParam(":movil",$arrayPerson['movil'],PDO::PARAM_STR);
+        $stmt->bindParam(":location",$arrayPerson['location'],PDO::PARAM_STR);
+
+    if($stmt->execute()){
+        return "success";
+      }else{
+        return "error";
+      }
+      $stmt->close();
+
+     }
+  
+
+
+
     //Actualizar confirmacion de datos
     //************************************************
     public function actualizarConfirmarDatos($personaId,$tabla){
