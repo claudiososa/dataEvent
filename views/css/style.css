@@ -39,7 +39,7 @@ font-size: 1.25rem;
   margin-bottom: 1.5rem;
 
 }
-.formUser{
+input.form-control.formUser{
   color:#003764;
   border: 2px solid;
   /*color: #003764;*/
@@ -54,7 +54,7 @@ font-size: 1.25rem;
 }
 
 
-.formPass{
+input.form-control.formPass{
   color:#003764;
   border: 2px solid;
   margin-bottom: 20px;
@@ -167,27 +167,94 @@ font-size: 1.25rem;
 /*******WELCOME*******/
 
 
+
+
+
+/*******SEARCH PERSON*******/
+/*
+.containerSearch{
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-bottom: 100px;
+}*/
+div.input-group.divSearchDni{
+  padding-bottom: 1rem;
+}
+
+div.input-group.divSearchApellido{
+  padding-bottom: 1rem;
+}
+input.form-control.searchDni{
+  border: 1px solid #003764;
+  border-radius: 20px;
+  border-left: 0;
+  padding-left: 0;
+
+  font-size: 1.3rem;
+}
+input.form-control.searchApellido{
+  border: 1px solid #003764;
+  border-radius: 20px;
+  border-left: 0;
+  padding-left: 0;
+  color: #003764;
+  font-size: 1.3rem;
+}
+span.input-group-text.dni{
+  background-color: white;
+  border: 1px solid #003764;
+  border-right: 0;
+  border-top-left-radius:20px;
+  border-bottom-left-radius:20px;
+
+}
+span.input-group-text.apellido{
+  background-color: white;
+  border: 1px solid #003764;
+  border-right: 0;
+  border-top-left-radius:20px;
+  border-bottom-left-radius:20px;
+}
+span.input-group-text img{
+  width: 1.25rem;
+
+}
+.btnSearchPerson{
+  background: linear-gradient(to right, #2193B0, #6DD5ED);
+  border: 0;
+  font-weight: bold;
+  border-radius: 1rem;
+}
+
+/*******SEARCH PERSON*******/
+
+
+
+
 /*******FORM EDIT PERSON*****/
 .containerPerson{
 
   /*border:5px solid blue;*/
   max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-bottom: 100px;
 
 }
 /*div .cardFormPerson{
   max-width: 1000px;
 
 }*/
-div .card.cardFormPerson{
+div.card.cardFormPerson{
   max-width:1200px;
   width: auto;
   margin: auto;
   border-radius: 15px;
 }
-div .card-body.cardBodyPerson{
+div.card-body.cardBodyPerson{
   padding: 30px 120px ;
 
 }
@@ -275,17 +342,87 @@ input.form-control.personPhone{
 
 
 }
+div.form-inline{
+  color: #003764;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-top: 1px solid;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  padding: 0.5rem 0 0.5rem 0;
+
+}
+select.form-control.personProvincia{
+  border:0;
+
+
+
+}
+div.form-group.formGroupPerson,input.form-control{
+  color: #003764;
+  font-size: 1.3rem;
+  border:0;
+}
+select.form-control.personTipo{
+  border:0;
+
+
+}
+select.form-control.personNivel{
+  border:0;
+
+
+
+}
+div.btnFormPerson  button.btn.btn-primary{
+  background: linear-gradient(to right, #2193B0, #6DD5ED);
+  font-weight: bold;
+  border:none;
+  align-items: center;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height:3rem;
+  margin-right: 1rem;
+  border-radius: 1.5rem;
+
+}
+div.btnFormPerson{
+  padding-top: 2rem;
+}
 /*******FORM EDIT PERSON*****/
 
 
 
+
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*media queries*/
-@media screen and (max-width:1919px) {
+
+
+
+
+
+@media screen and (max-width:1600px) {
   body{
 
     border:5px solid orange;
     font-size: 1.6rem;
   }
+  /*******FORM EDIT PERSON*****/
+  .containerPerson{
+
+    /*border:5px solid blue;*/
+    max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+
+  }
+  /*******FORM EDIT PERSON*****/
 }
 @media screen and (max-width:991px) {
   /*******LOGIN*****/
@@ -317,12 +454,31 @@ input.form-control.personPhone{
   margin-top: 1.25rem;
 }
 /*******WELCOME*******/
+
+
   /*img.img-fluid.menu{
 margin: 0;
 padding: 0;
 border-top: 1px solid;
 
   }*/
+
+  /*******FORM EDIT PERSON*****/
+  .containerPerson{
+
+    /*border:5px solid blue;*/
+    max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+
+  }
+  div.card.cardFormPerson{}
+  div.card-body.cardBodyPerson{
+    padding: 30px 50px ;
+
+  }
+  /*******FORM EDIT PERSON*****/
 
 
 
@@ -354,6 +510,21 @@ padding-right: 1.8rem;
     margin-bottom: 0;
   }
   /*******WELCOME*******/
+  /*******FORM EDIT PERSON*****/
+  .containerPerson{
+
+    /*border:5px solid blue;*/
+    max-width: 700px;
+    width: auto;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      overflow: hidden;
+
+  }
+  div.card-body.cardBodyPerson{
+    padding: 30px;
+  }
+  /*******FORM EDIT PERSON*****/
 
 }
 
@@ -386,6 +557,23 @@ padding-right: 1rem;
     font-size: 1rem;
   }
   /*******WELCOME*******/
+  /*******FORM EDIT PERSON*****/
+  .containerPerson{
+
+    /*border:5px solid blue;*/
+    max-width: 700px;
+    width: auto;
+    margin-left: 0.9rem;
+    margin-right: 0.9rem;
+    overflow: hidden;
+
+
+  }
+  div.card-body.cardBodyPerson{
+    padding: 10px;
+  }
+
+  /*******FORM EDIT PERSON*****/
 }
 
 @media screen and (max-width:320px) {
