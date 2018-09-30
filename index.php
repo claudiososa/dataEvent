@@ -3,6 +3,7 @@
 require_once "models/enlaces.php";
 require_once "models/General.php";
 require_once "models/crud.php";
+//require_once "models/EventPerson.php";
 require_once "models/crudPerson.php";
 require_once "models/CrudStudent.php";
 require_once "models/Courses.php";

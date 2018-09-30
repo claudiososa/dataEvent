@@ -1,14 +1,11 @@
 
 $(document).ready(function() {
-  var estado = 0
-
 
 /**
- * Evento clic para Boton Confirmar Datos (guarda todos los datos de persona y tipo de visitante)
+ * Confirm data event  for button "Confirmar Datos"
  */
   $("#confirmaDatos").click(function(event) {
-
-    let estado = 'no'
+    let eventId='1'
     let personId = $("#personIdEditar").val();
     let lastname = $("#lastnameRegistro").val();
     let firstname = $("#firstnameRegistro").val();
@@ -17,9 +14,9 @@ $(document).ready(function() {
     let movil = $("#movilRegistro").val();
     let location = $("#firstnameRegistro").val();
 
-    //alert(personId+lastname+firstname+dni+email+movil+location);
-    function  confirmarDatos(personId){
-      estado = 'si'
+
+    function  savePerson(personId){
+
       return new Promise((resolve,reject) => {
         $.ajax({
           url: 'views/modules/ajax/ajaxPerson.php',
@@ -40,15 +37,52 @@ $(document).ready(function() {
       })
     }
 
-
-    confirmarDatos(personId)
+    savePerson(personId)
       .then(function (data){
-        swal('EventManager','Datos confirmado con EXITO','success')
+        //swal('EventManager','Datos confirmado con EXITO','success')
       })
       .catch(error=> console.log(error + ' Noooo'))
 
 
-  });
+/******************************************/
+    function  confirmData(eventId,personId){
+
+      return new Promise((resolve,reject) => {
+        $.ajax({
+          url: 'views/modules/ajax/ajaxEventPerson.php',
+          type: 'POST',
+        //  dataType: 'json',
+          data: {eventId:eventId,personId:personId}
+        })
+        .done(function(data) {
+          if (data) {
+            resolve(data)
+          }else{
+            reject(data)
+          }
+
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+
+      })
+    }
+
+    confirmData('1',personId)
+      .then(function (data){
+        swal('EventManager','Datos confirmado con EXITO','success')
+      })
+      .catch(function (data){
+        swal('EventManager','No se pude guardar los datos','error')
+      })
+
+
+
+  });//End event clic for "Confirmar datos"
 
 
 });
