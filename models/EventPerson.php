@@ -17,9 +17,9 @@ class EventPerson extends Conexion{
     $stmt = $conexion->prepare("UPDATE event_persons SET confirmation='SI' WHERE id=:id");
     $stmt->bindParam(":id",$id,PDO::PARAM_INT);
     if ($stmt->execute()) {
-      return true;
+      return $id;
     }else{
-      return false;
+      return 0;
     }
 
   }

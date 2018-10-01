@@ -57,7 +57,7 @@ if (isset($_POST['personId'])) {
     $confirm = ControllerEventPerson::saveConfirmController($eventPersonId['id']);
 
     if ($confirm) {
-      echo '1';
+      echo $confirm;
     }
     //Maestro::debbugPHP($confirm);
   }else{

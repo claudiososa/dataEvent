@@ -3,40 +3,53 @@ require_once "conexion.php";
 class CrudAttendance extends Conexion{
   //Register of student
 
-  public function newAttendanceModel($datos,$tabla){
+  public function searchAttendanceModel($eventPersonId,$dateA,$turn,$table){
+    $conexion = new Conexion();
+    //$stmt = $conexion->prepare("SELECT * FROM $table WHERE dateA ='".$dateA."'");
+    $stmt = $conexion->prepare("SELECT * FROM $table WHERE event_person_id=:eventPersonId AND dateA ='".$dateA."' AND turn=:turn");
+    $stmt->bindParam(":eventPersonId",$eventPersonId,PDO::PARAM_INT);
+    //$stmt->bindParam(":dateA",$dateA);
+    $stmt->bindParam(":turn",$turn,PDO::PARAM_STR);
+    $stmt->execute();
+    if (!empty($stmt->fetch())) {
+      return '0';
+    }else{
+      return '1';
+    }
+
+    //return $stmt;
+  }
+
+  public function newAttendanceModel($eventPersonId,$dateA,$timeA,$turn,$tabla){
     //var_dump($datos);
     $conexion = new Conexion();
     $stmt = $conexion->prepare("INSERT INTO $tabla
-                                                  (attendance_id,
-                                                    student_id,
-                                                    date_attendance,
-                                                    status,
-                                                    user_id,
-                                                    date_update
+                                                  ( id,
+                                                    event_person_id,
+                                                    dateA,
+                                                    timeA,
+                                                    turn
                                                     )
                                   VALUES (null,
-                                              :student_id,
-                                              :date_attendance,
-                                              :status,
-                                              :user_id,
-                                              :date_update
+                                              :event_person_id,
+                                              :dateA,
+                                              :timeA,
+                                              :turn
                                               )");
-    $stmt->bindParam(":student_id",$datos["student_id"],PDO::PARAM_INT);
-    $stmt->bindParam(":date_attendance",$datos["date_attendance"]);
-    $stmt->bindParam(":status",$datos["status"],PDO::PARAM_STR);
-    $stmt->bindParam(":user_id",$datos["user_id"],PDO::PARAM_INT);
-    $stmt->bindParam(":date_update",$datos["date_update"]);
-
+    $stmt->bindParam(":event_person_id",$eventPersonId,PDO::PARAM_INT);
+    $stmt->bindParam(":dateA",$dateA);
+    $stmt->bindParam(":timeA",$timeA);
+    $stmt->bindParam(":turn",$turn,PDO::PARAM_STR);
     //echo $stmt;
 //var_dump($datosModel);
     if($stmt->execute()){
-      return "success";
+      return "cas";
     }else{
       return "error";
     }
-
-    $stmt->close();
-  }
+  //
+     $stmt->close();
+   }
 
 
   //View of Student

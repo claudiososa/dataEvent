@@ -2,50 +2,20 @@
 
 class ControllerAttendance{
 
-	#LLAMADA A LA PLANTILLA
-	#-------------------------------------
-
-	public function pagina(){
-
-		include "views/template.php";
-
-	}
-
-	#ENLACES
-	#-------------------------------------
-
-	public function enlacesPaginasController(){
-		if(isset( $_GET['action'])){
-			$enlaces = $_GET['action'];
-		}else{
-			$enlaces = "index";
-    }
-		$respuesta = Paginas::enlacesPaginasModel($enlaces);
-		include $respuesta;
-	}
-
 
 	// Nuevo asistencia
-	public function newAttendanceController($id,$status){
-		if(isset($_POST["submitAttendance"])){
-  		$datosController = array(
-                      "student_id"=>$id,
-                      "date_attendance"=>$_POST["date"],
-                      "status"=>$status,
-                      "user_id"=>$_SESSION['user_id'],
-                      "date_update"=>date("Y-m-d")
+	public function newAttendanceController($eventPersonId,$dateA,$timeA,$turn)
+	{
+			$create = CrudAttendance::newAttendanceModel($eventPersonId,$dateA,$timeA,$turn,"attendances");
+  		return $create;
+			//return 'controller';
+	}
 
-  									);
-  		$respuesta = CrudAttendance::newAttendanceModel($datosController, "attendances");
-
-  		if ($respuesta =="success") {
-        return "saved";
-  			//header("location:index.php?action=ok");
-  		}else{
-  			return "NoT saved";
-  		}
-
-		}
+	public function searchAttendanceController($eventPersonId,$dateA,$turn)
+	{
+			$search = CrudAttendance::searchAttendanceModel($eventPersonId,$dateA,$turn,"attendances");
+  		return $search;
+			//return 'controller';
 	}
 
   // Actualizar asistencia
