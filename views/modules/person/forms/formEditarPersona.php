@@ -94,3 +94,4 @@
     </div>
   </div>
 </div>
+<script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script>
