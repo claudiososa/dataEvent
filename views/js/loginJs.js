@@ -4,7 +4,29 @@ $(document).ready(function() {
   $('#tomarAsistencia').attr('disabled',true)
 
 
+    $('#btnvalidar').click( function (event){
+      //alert('presiono boton buscar')
+      let dni = $("#dni").val()
+      let searchDni = 'searchDni'
 
+      $.ajax({
+        url: 'views/modules/ajax/ajaxPerson.php',
+        type: 'POST',
+        //dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+        data: {dni:dni,searchDni:searchDni}
+      })
+      .done(function(data) {
+        console.log("successBtnValidar");
+        //alert('successBtnValidar')
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+
+    })
 
     $('#tomarAsistencia').click( function (event){
 

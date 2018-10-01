@@ -38,6 +38,12 @@ class ControllerPerson{
 	/**
 	 * Buscar personas
 	 */
+
+	public function searchDniPersonController($dni){
+		$result = Person::searchDniPersonModel($dni,'persons');
+		return $result;
+	}
+
 	public function searchPersonController($typeSearch=NULL,$person_id=NULL){
 		switch ($typeSearch) {
 			case 'form':
@@ -147,7 +153,7 @@ class ControllerPerson{
 	public function editarPersonController(){
 		$datos = $_GET["id"];
 		$respuesta=Person::editarPersonModel($datos,"persons");
-		include_once 'views/modules/person/forms/formNewPerson.php';	
+		include_once 'views/modules/person/forms/formNewPerson.php';
 	}
 
 

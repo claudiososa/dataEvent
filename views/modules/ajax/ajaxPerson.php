@@ -30,6 +30,11 @@ class AjaxPerson {
     $guardar = ControllerPerson::updatePersonController($arrayPerson);
     echo $guardar;
   }
+
+  public function searchDni(){
+    $search = ControllerPerson::searchDniPersonController($this->dni);
+    echo $search;
+  }
 }
 
 if (isset($_POST['personId'])) {
@@ -45,4 +50,12 @@ if (isset($_POST['personId'])) {
   $a->location = $_POST['location'];
 //Maestro::debbugPHP($a);
   $a->updatePerson();
+}
+
+if (isset($_POST['searchDni'])) {
+  $person = new AjaxPerson();
+  $person->dni = $_POST['dni'];
+
+//Maestro::debbugPHP($a);
+  $person->searchDni();
 }

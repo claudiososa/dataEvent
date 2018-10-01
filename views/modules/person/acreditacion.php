@@ -19,7 +19,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 									<div class="input-group-prepend">
 										<span class="input-group-text dni" ><img src="img/man-user.svg" alt=""></span>
 									</div>
-									<input  class="form-control searchDni" type="text" name="dni"  placeholder="Buscar DNI"  autofocus>
+									<input  class="form-control searchDni" type="text" name="dni" id="dni" placeholder="Buscar DNI"  autofocus>
 								</div>
 								<div class="input-group divSearchApellido" >
 									<div class="input-group-prepend">
