@@ -97,12 +97,15 @@ class Person extends Conexion{
       $stmt = $conexion->prepare("SELECT * FROM $tabla WHERE dni=:dni");
       $stmt->bindParam(":dni",$dni,PDO::PARAM_INT);
       $stmt->execute();
-      $result = $stmt->fetch();
+      $result = $stmt->fetchAll();
       //var_dump($stmt);
       if (empty($result)) {
         return 0;
       }else{
-        return $result;
+        $json = json_encode($result);
+        return $json;
+        // $encode
+        // return $result;
       }
 
       $stmt->close();
@@ -285,6 +288,28 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
       $stmt->close();
     }
 
+
+
+  public function createPersonModel($arrayPerson,$tabla){
+    $conexion = new Conexion();
+    $stmt = $conexion->prepare("INSERT INTO $tabla (lastname,firstname,dni,cuil,email,movil,location) VALUES ()
+      WHERE person_id=:person_id");
+      $stmt->bindParam(":person_id",$arrayPerson['personId'],PDO::PARAM_INT);
+      $stmt->bindParam(":lastname",$arrayPerson['lastname'],PDO::PARAM_STR);
+      $stmt->bindParam(":firstname",$arrayPerson['firstname'],PDO::PARAM_STR);
+      $stmt->bindParam(":dni",$arrayPerson['dni'],PDO::PARAM_INT);
+      $stmt->bindParam(":email",$arrayPerson['email'],PDO::PARAM_STR);
+      $stmt->bindParam(":movil",$arrayPerson['movil'],PDO::PARAM_STR);
+      $stmt->bindParam(":location",$arrayPerson['location'],PDO::PARAM_STR);
+
+  if($stmt->execute()){
+      return "success";
+    }else{
+      return "error";
+    }
+    $stmt->close();
+
+   }
 
   public function updatePersonModel($arrayPerson,$tabla){
       $conexion = new Conexion();

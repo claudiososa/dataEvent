@@ -4,7 +4,7 @@ $(document).ready(function() {
   $('#tomarAsistencia').attr('disabled',true)
 
 
-    $('#btnvalidar').click( function (event){
+    $('#btnSearchPerson').click( function (event){
       //alert('presiono boton buscar')
       let dni = $("#dni").val()
       let searchDni = 'searchDni'
@@ -12,11 +12,52 @@ $(document).ready(function() {
       $.ajax({
         url: 'views/modules/ajax/ajaxPerson.php',
         type: 'POST',
-        //dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+        dataType: 'json',
         data: {dni:dni,searchDni:searchDni}
       })
       .done(function(data) {
         console.log("successBtnValidar");
+        if (data=='0') {//no existe persona con el dni ingresado
+            //alert('Persona no existe')
+        swal({
+            title: "El DNI ingresado no EXISTE",
+            text: "Desea agregar una nueva Persona?",
+            icon: "warning",
+            buttons: ["Cancelar", "Si"],
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              $('#formEditPerson').fadeIn(600);
+              $('#saveStatus').val("new")
+              $('#personIdEditar').val("")
+              $('#dniRegistro').val($('#dni').val())
+              $('#lastnameRegistro').val("")
+              $('#firstnameRegistro').val("")
+              $('#emailRegistro').val("")
+              $('#movilRegistro').val("")
+              $('#locationRegistro').val("")
+
+            } else {
+              swal("Your imaginary file is safe!");
+            }
+          });
+        }else{//devuele el person_id de la persona correspondiente al DNI
+          $('#formEditPerson').fadeIn(700);
+          for (let item of data) {
+            $('#personIdEditar').val(item.person_id)
+            $('#dniRegistro').val(item.dni)
+            $('#lastnameRegistro').val(item.lastname)
+            $('#firstnameRegistro').val(item.firstname)
+            $('#emailRegistro').val(item.email)
+            $('#movilRegistro').val(item.movil)
+            $('#locationRegistro').val(item.location)
+
+
+          }
+
+        }
+        //alert(data)
         //alert('successBtnValidar')
       })
       .fail(function() {
@@ -39,6 +80,7 @@ $(document).ready(function() {
         })
         .done(function(data) {
           console.log("success");
+          $('#formEditPerson').fadeOut(700);
           swal('EventManager','La asistencia fue registrada','success')
         })
 
@@ -93,24 +135,36 @@ $(document).ready(function() {
 /******************************************/
     function  savePerson(personId){
 
-      return new Promise((resolve,reject) => {
-        $.ajax({
-          url: 'views/modules/ajax/ajaxPerson.php',
-          type: 'POST',
-        //  dataType: 'json',
-          data: {personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
+      if (saveStatus=='new') {
+        return new Promise((resolve,reject) => {
+          let saveNew = 'saveNew'
+          $.ajax({
+            url: 'views/modules/ajax/ajaxPerson.php',
+            type: 'POST',
+          //  dataType: 'json',
+            data: {saveNew:saveNew,personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
+          })
+          .done(function(data) {
+            resolve(data)
+          })
         })
-        .done(function(data) {
-          resolve(data)
-        })
-        .fail(function() {
-          console.log("error");
-        })
-        .always(function() {
-          console.log("complete");
-        });
+      }else{
+        return new Promise((resolve,reject) => {
+          $.ajax({
+            url: 'views/modules/ajax/ajaxPerson.php',
+            type: 'POST',
+          //  dataType: 'json',
+            data: {personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
+          })
+          .done(function(data) {
+            resolve(data)
+          })
 
-      })
+        })
+
+      }
+
+
     }
 
     savePerson(personId)

@@ -1,9 +1,10 @@
-<div class="containerPerson">
+<!-- <div class="containerPerson"> -->
 
   <div class="card cardFormPerson">
     <div class="card-body cardBodyPerson">
 
-      <form method="post" onsubmit="return validarRegistro()" class="formPerson">
+      <form method="post" onsubmit="return validarRegistro()" class="formPerson" id="formPerson">
+        <input type="hidden" id="saveStatus" name="saveStatus" value='edit'>
         <input type="hidden" id="personIdEditar" name="personIdEditar" value='<?php echo $item["person_id"] ?>'>
 
         <h3>Datos Encontrados:</h3>
@@ -63,7 +64,7 @@
 
         <div class="form-inline">
           <label for="direccionRegistro">Localidad:</label>
-          <input type="text" class="form-control personLocalidad" placeholder="Ingrese Localidad" name="addressRegistro" value='<?php echo $item["address"] ?>' id="" >
+          <input type="text" class="form-control personLocalidad" placeholder="Ingrese Localidad" name="addressRegistro" value='<?php echo $item["address"] ?>' id="locationRegistro" >
         </div>
         <div class="form-inline">
           <label for="direccionRegistro">Tipo:</label>
@@ -93,5 +94,5 @@
     </div>
     </div>
   </div>
-</div>
-<script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script>
+<!-- </div> -->
+<!-- <script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script> -->

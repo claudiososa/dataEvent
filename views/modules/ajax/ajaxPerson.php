@@ -15,6 +15,21 @@ class AjaxPerson {
   public $location;
 
 
+  public function createPerson(){
+    //$dato = $this->personId;
+    $arrayPerson = array(
+            'lastname' => $this->lastname,
+            'firstname' => $this->firstname,
+            'dni' => $this->dni,
+            'email' => $this->email,
+            'movil' => $this->movil,
+            'location' => $this->location
+    );
+    //Maestro::debbugPHP($arrayPerson);
+    $guardar = ControllerPerson::createPersonController($arrayPerson);
+    echo $guardar;
+  }
+
   public function updatePerson(){
     //$dato = $this->personId;
     $arrayPerson = array(
@@ -33,6 +48,7 @@ class AjaxPerson {
 
   public function searchDni(){
     $search = ControllerPerson::searchDniPersonController($this->dni);
+    Maestro::debbugPHP($search);
     echo $search;
   }
 }
@@ -56,6 +72,6 @@ if (isset($_POST['searchDni'])) {
   $person = new AjaxPerson();
   $person->dni = $_POST['dni'];
 
-//Maestro::debbugPHP($a);
+
   $person->searchDni();
 }

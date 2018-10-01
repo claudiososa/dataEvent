@@ -159,6 +159,20 @@ class ControllerPerson{
 
 		//Actualizar Persona desde Pantalla de Confirmar datos
 		//*********************************************************
+
+
+		public function createPersonController($arrayPerson){
+			$createPerson = Person::createPersonModel($arrayPerson,"persons");
+
+			if($createPerson == "success"){
+				return 'success';
+			}else {
+				return "error";
+			}
+			//echo $respuesta;
+		//}
+	}
+
 		public function updatePersonController($arrayPerson){
 			$updatePerson = Person::updatePersonModel($arrayPerson,"persons");
 
