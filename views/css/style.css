@@ -171,14 +171,32 @@ input.form-control.formPass{
 
 
 /*******SEARCH PERSON*******/
-/*
 .containerSearch{
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2rem;
   overflow: hidden;
-  padding-bottom: 100px;
-}*/
+  /*padding-bottom: 50px;*/
+}
+h5.card-title{
+  color: #003764;
+  text-align: center;
+  font-weight: bold;
+}
+div.row.rowSearchPerson{
+  max-width: 1200px;
+width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.card-body.cardBodySearch{
+padding:2rem 5rem;
+}
+form.formSearchPerson{
+  max-width: 350px;
+  margin: auto;
+}
 div.input-group.divSearchDni{
   padding-bottom: 1rem;
 }
@@ -226,6 +244,9 @@ span.input-group-text img{
   border: 0;
   font-weight: bold;
   border-radius: 1rem;
+}
+div.card-body.cardBodyModificarPerson{
+  text-align: center;
 }
 
 /*******SEARCH PERSON*******/

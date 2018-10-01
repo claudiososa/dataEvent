@@ -6,14 +6,14 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 ?>
 
 <div class="container containerSearch">
-	<div class="row">
+	<div class="row rowSearchPerson">
 		<div class="col-sm-6">
 			<div class="card ">
-				<div class="card-body">
+				<div class="card-body cardBodySearch">
 					<h5 class="card-title">Buscar Persona:</h5>
 
 
-					<form   align="center" action="" name="searchPerson" method="POST">
+					<form  class="formSearchPerson" align="center" action="" name="searchPerson" method="POST">
 
 								<div class="input-group divSearchDni">
 									<div class="input-group-prepend">
@@ -21,7 +21,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 									</div>
 									<input  class="form-control searchDni" type="text" name="dni"  placeholder="Buscar DNI"  autofocus>
 								</div>
-								<div class="input-group divSearchApellido" >
+								<div class="input-group divSearchApellido">
 									<div class="input-group-prepend">
 										<span class="input-group-text apellido"><img src="img/man-user.svg" alt=""></span>
 
@@ -57,7 +57,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 		</div>
 		<div class="col-sm-6">
 			<div class="card">
-				<div class="card-body">
+				<div class="card-body cardBodyModificarPerson">
 					<h5 class="card-title">Agregar Persona</h5>
 					<button class="btn btn-primary btnSearchPerson" href="index.php?action=createPerson" name="searchPersonSubmit">Nueva Persona</button>
 				</div>
@@ -65,7 +65,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 		</div>
 	</div>
 
-</div><br><br><br><br><br>
+</div><br>
 <!-- <section class="success" id="about">
 	<div class="card-block">
 		<h5	 class="card-title" align="center">Agregar Persona :</h5>

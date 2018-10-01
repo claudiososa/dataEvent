@@ -7,8 +7,11 @@
 					<h4 >LOGIN</h4>
 
 
-					<form class="formLogin"  action="" name="iniciosesion" method="POST">
-						<input style="background-image:url('img/man-user.svg');" class="form-control formUser" type="text" name="usuarioIngreso"  placeholder="Ingrese Usuario"  size="50" required autofocus>
+					<form class="formLogin needs-validation"  action="" name="iniciosesion" method="POST" novalidate>
+						<input style="background-image:url('img/man-user.svg');" class="form-control formUser" type="text" name="usuarioIngreso"  placeholder="Ingrese Usuario"  size="50" required autofocus  id="validationCustomUsername">
+						<div class="invalid-feedback">
+          Please choose a username.
+        </div>
 
 						<!-- <input class="form-control" name="user" type="text" placeholder="Ingrese Usuario" autofocus> -->
 
@@ -46,3 +49,24 @@ if(isset($_GET["action"])){
 	}
 }
  ?>
+<script type="text/javascript">
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+</script>
