@@ -21,14 +21,14 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 									</div>
 									<input  class="form-control searchDni" type="text" name="dni" id="dni" placeholder="Buscar DNI"  autofocus>
 								</div>
-								<div class="input-group divSearchApellido">
+								<!-- <div class="input-group divSearchApellido">
 									<div class="input-group-prepend">
 										<span class="input-group-text apellido"><img src="img/man-user.svg" alt=""></span>
 
-									</div>
+
 									<input class="form-control searchApellido" type="text" name="lastname"  placeholder="Apellido">
 
-								</div>
+								</div> -->
 <!--
 								<div id="name">
 									<input type="text" name="lastname" value="" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Apellido">
@@ -55,14 +55,14 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-6">
+		<!-- <div class="col-sm-6">
 			<div class="card">
 				<div class="card-body cardBodyModificarPerson">
 					<h5 class="card-title">Agregar Persona</h5>
 					<button class="btn btn-primary btnSearchPerson" href="index.php?action=createPerson" name="searchPersonSubmit">Nueva Persona</button>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 </div><br>

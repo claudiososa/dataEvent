@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg	">
+<nav class="navbar navbar-expand-lg ">
 
 
 
@@ -10,7 +10,7 @@
 
 <div class="collapse navbar-collapse" id="navbarText">
 
-		    <ul class="navbar-nav mr-auto">
+		    <ul class="navbar-nav ml-auto">
 
 		<?php
 		if(isset($_SESSION["typeUser"]))
