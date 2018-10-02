@@ -94,18 +94,19 @@ class Person extends Conexion{
 
   public function searchDniPersonModel($dni,$tabla,$type=NULL){
       $conexion = new Conexion();
-      $stmt = $conexion->prepare("SELECT * FROM $tabla WHERE dni=:dni");
+      $stmt = $conexion->prepare("SELECT * FROM $tabla
+                                  INNER JOIN event_persons
+                                  ON event_persons.person_id=persons.person_id
+                                  WHERE persons.dni=:dni AND event_persons.event_id=1");
       $stmt->bindParam(":dni",$dni,PDO::PARAM_INT);
       $stmt->execute();
       $result = $stmt->fetchAll();
-      //var_dump($stmt);
+      //return $stmt;
       if (empty($result)) {
         return 0;
       }else{
-        $json = json_encode($result);
-        return $json;
-        // $encode
-        // return $result;
+        $json = json_encode($search);
+        return $json;        
       }
 
       $stmt->close();

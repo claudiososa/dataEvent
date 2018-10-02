@@ -3,7 +3,6 @@ require_once "../../../controllers/controllerPerson.php";
 require_once "../../../models/crudPerson.php";
 require_once "../../../models/maestro.php";
 
-
 class AjaxPerson {
 
   public $personId;
@@ -48,8 +47,8 @@ class AjaxPerson {
   }
 
   public function searchDni(){
+    $person=0;
     $search = ControllerPerson::searchDniPersonController($this->dni);
-    //Maestro::debbugPHP($search);
     echo $search;
   }
 }

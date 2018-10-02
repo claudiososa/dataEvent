@@ -5,7 +5,7 @@ class EventPerson extends Conexion{
   public function searchEventPersonIdModel($event_id,$person_id){
 
     $conexion = new Conexion();
-    $stmt = $conexion->prepare("SELECT id FROM event_persons WHERE event_id=:event_id AND person_id=:person_id");
+    $stmt = $conexion->prepare("SELECT id,visitor_id,detalle_visitor_id FROM event_persons WHERE event_id=:event_id AND person_id=:person_id");
     $stmt->bindParam(":event_id",$event_id,PDO::PARAM_INT);
     $stmt->bindParam(":person_id",$person_id,PDO::PARAM_INT);
     $stmt->execute();
@@ -38,7 +38,7 @@ class EventPerson extends Conexion{
     $stmt->bindParam(":detalleVisitorId",$detalleVisitorId,PDO::PARAM_INT);
     $stmt->bindParam(":confirmation",$confirmation,PDO::PARAM_STR);
     $stmt->bindParam(":dateConfirmation",$dateConfirmation);
-    
+
   if($stmt->execute()){
       $lastId = $conexion->lastInsertId();
       return $lastId;
