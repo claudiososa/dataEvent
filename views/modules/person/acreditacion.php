@@ -6,7 +6,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 ?>
 <div class="container containerSearch">
 	<div class="row rowSearchPerson ">
-		<div class="col-sm-6 offset-3">
+		<div class="col-md-6  offset-md-3 col-xs-12">
 			<div class="card" style="width:360px;border-radius:10px;margin:auto;">
 				<div class="card-body cardBodySearch">
 					<!-- <h5 class="card-title mb-1">Buscar Persona:</h5> -->
