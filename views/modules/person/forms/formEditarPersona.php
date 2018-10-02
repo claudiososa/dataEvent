@@ -36,29 +36,29 @@
         <div class="form-inline">
           <label for="direccionRegistro">Provincia:</label>
           <select class="form-control personProvincia" id="">
-             <option value="Buenos Aires">Bs. As.</option>
-             <option value="Catamarca">Catamarca</option>
-             <option value="Chaco">Chaco</option>
-             <option value="Chubut">Chubut</option>
-             <option value="Cordoba">Cordoba</option>
-             <option value="Corrientes">Corrientes</option>
-             <option value="Entre Rios">Entre Rios</option>
-             <option value="Formosa">Formosa</option>
-             <option value="Jujuy">Jujuy</option>
-             <option value="La Pampa">La Pampa</option>
-             <option value="La Rioja">La Rioja</option>
-             <option value="Mendoza">Mendoza</option>
-             <option value="Misiones">Misiones</option>
-             <option value="Neuquen">Neuquen</option>
-             <option value="Rio Negro">Rio Negro</option>
-             <option value="Salta">Salta</option>
-             <option value="San Juan">San Juan</option>
-             <option value="San Luis">San Luis</option>
-             <option value="Santa Cruz">Santa Cruz</option>
-             <option value="Santa Fe">Santa Fe</option>
-             <option value="Sgo. del Estero">Sgo. del Estero</option>
-             <option value="Tierra del Fuego">Tierra del Fuego</option>
-             <option value="Tucuman">Tucuman</option>
+             <option value="BUENOS AIRES">Bs. As.</option>
+             <option value="CATAMARCA">Catamarca</option>
+             <option value="CHACO">Chaco</option>
+             <option value="CHUBUT">Chubut</option>
+             <option value="CORDOBA">Cordoba</option>
+             <option value="CORRIENTES">Corrientes</option>
+             <option value="ENTRE RIOS">Entre Rios</option>
+             <option value="FORMOSA">Formosa</option>
+             <option value="JUJUY">Jujuy</option>
+             <option value="LA PAMPA">La Pampa</option>
+             <option value="LA RIOJA">La Rioja</option>
+             <option value="MENDOZA">Mendoza</option>
+             <option value="MISIONES">Misiones</option>
+             <option value="NEUQUEN">Neuquen</option>
+             <option value="RIO NEGRO">Rio Negro</option>
+             <option value="SALTA">Salta</option>
+             <option value="SAN JUAN">San Juan</option>
+             <option value="SAN LUIS">San Luis</option>
+             <option value="SANTA CRUZ">Santa Cruz</option>
+             <option value="SANTA FE">Santa Fe</option>
+             <option value="SGO DEL ESTERO">Sgo. del Estero</option>
+             <option value="TIERRA DEL FUEGO">Tierra del Fuego</option>
+             <option value="TUCUMAN">Tucuman</option>
           </select>
         </div>
 
