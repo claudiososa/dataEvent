@@ -21,7 +21,7 @@ $(document).ready(function() {
       })
       .done(function(data) {
         console.log("successBtnValidar");
-        if (data=='0') {//no existe persona con el dni ingresado
+        if (data=='0') {//sino existe persona con el dni ingresado
 
         swal({
             title: "El DNI ingresado no EXISTE",
@@ -43,12 +43,14 @@ $(document).ready(function() {
               $('#locationRegistro').val("")
 
             } else {
-              swal("Your imaginary file is safe!");
+              $('#dni').focus()
+              //swal("Your imaginary file is safe!");
             }
           });
         }else{//devuele el person_id de la persona correspondiente al DNI
           $('#formEditPerson').fadeIn(700);
           $('#saveStatus').val("edit")
+          $('#confirmaDatos').focus()
           for (let item of data) {
             $('#personIdEditar').val(item.person_id)
             $('#dniRegistro').val(item.dni)
@@ -95,6 +97,9 @@ $(document).ready(function() {
           $("#dni").val('')
           $('#formEditPerson').fadeOut(700);
           swal('EventManager','La asistencia fue registrada','success')
+            .then(function(){
+              $('#dni').focus()
+            })
         })
 
 
@@ -237,6 +242,10 @@ $(document).ready(function() {
               $('#tomarAsistencia').attr('disabled',false)
               eventPersonId = data
               swal('EventManager','Datos confirmado con EXITO','success')
+                .then(function(){
+                    $('#tomarAsistencia').focus()
+                })
+
             })
             .catch(function (data){
               swal('EventManager','No se pude guardar los datos','error')
@@ -246,15 +255,18 @@ $(document).ready(function() {
           confirmData('1',personId,saveEventPerson)
           .then(function (data){
             $('#tomarAsistencia').attr('disabled',false)
-              //alert('llego a then de confirmdata')
             eventPersonId = data
-
             swal('EventManager','Datos confirmado con EXITO','success')
+              .then(function(){
+                $('#tomarAsistencia').focus()
+              })
+
           })
           .catch(function (data){
             swal('EventManager','No se pude guardar los datos','error')
           })
         }
+
 
         //swal('EventManager','Datos confirmado con EXITO','success')
       })
