@@ -451,7 +451,7 @@ div.btnFormPerson{
 @media screen and (max-width:991px) {
   /*******LOGIN*****/
   body {
-    border:5px solid pink;
+    /*border:5px solid pink;*/
     font-size: 1.6rem;
   }
 
@@ -512,7 +512,7 @@ border-top: 1px solid;
 @media screen and (max-width:767px){
 
   body {
-    border:5px solid red;
+    /*border:5px solid red;*/
     font-size: 1.4rem;
   }
   .navbar{
@@ -556,7 +556,7 @@ padding-right: 1.8rem;
 @media screen and (max-width:480px) {
   /*******LOGIN*****/
   body {
-    border:5px solid blue;
+    /*border:5px solid blue;*/
     font-size: 0.5rem;
   }
 
@@ -603,7 +603,7 @@ padding-right: 1rem;
 @media screen and (max-width:320px) {
   /*******LOGIN*****/
   body{
-    border: 5px solid green;
+    /*border: 5px solid green;*/
     font-size: 0.5rem;
 
   }
