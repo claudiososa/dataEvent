@@ -20,25 +20,7 @@
      echo '<li><a href="index.php?action=ingresar">Ingreso</a></li>';
 		}
  		?>
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=createCourse">Cursos</a>
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=usuarios">Usuarios</a>
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=createPerson">Crear Personas</a>
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=person">Listar Personas</a>
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=searchPerson">Buscar Persona</a>
-		</li>
+	
 
 
 		<!-- <li class="nav-item"><a class="nav-link"href="index.php?action=salir">Cerrar Sesión</a></li> -->
