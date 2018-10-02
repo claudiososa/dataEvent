@@ -41,7 +41,7 @@ $(document).ready(function() {
               $('#emailRegistro').val("")
               $('#movilRegistro').val("")
               $('#locationRegistro').val("")
-
+              $('#lastnameRegistro').focus()
             } else {
               $('#dni').focus()
               //swal("Your imaginary file is safe!");
