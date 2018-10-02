@@ -105,8 +105,8 @@ class Person extends Conexion{
       if (empty($result)) {
         return 0;
       }else{
-        $json = json_encode($search);
-        return $json;        
+        $json = json_encode($result);
+        return $json;
       }
 
       $stmt->close();

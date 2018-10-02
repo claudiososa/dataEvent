@@ -68,7 +68,7 @@
         </div>
         <div class="form-inline">
           <label for="direccionRegistro">Tipo:</label>
-          <select class="form-control personTipo" id="">
+          <select class="form-control personTipo" id="selPersonTipo">
             <option value="1">Supervisor</option>
             <option value="2">Profesor</option>
 
@@ -76,7 +76,7 @@
         </div>
         <div class="form-inline">
           <label for="direccionRegistro">Nivel:</label>
-          <select class="form-control personNivel" id="">
+          <select class="form-control personNivel" id="selPersonNivel">
             <option value="1">Privado</option>
             <option value="2">Estatal</option>
 

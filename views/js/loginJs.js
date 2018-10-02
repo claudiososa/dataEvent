@@ -48,6 +48,7 @@ $(document).ready(function() {
             }
           });
         }else{//devuele el person_id de la persona correspondiente al DNI
+          //debugger
           $('#formEditPerson').fadeIn(700);
           $('#saveStatus').val("edit")
           $('#confirmaDatos').focus()
@@ -60,6 +61,8 @@ $(document).ready(function() {
             $('#movilRegistro').val(item.movil)
             $('#locationRegistro').val(item.location)
 
+            $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
+            $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
 
           }
 
