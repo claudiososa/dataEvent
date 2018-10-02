@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
   let eventPersonId = 0
+
   $('#tomarAsistencia').attr('disabled',true)
 
 
@@ -18,7 +19,7 @@ $(document).ready(function() {
       .done(function(data) {
         console.log("successBtnValidar");
         if (data=='0') {//no existe persona con el dni ingresado
-            //alert('Persona no existe')
+
         swal({
             title: "El DNI ingresado no EXISTE",
             text: "Desea agregar una nueva Persona?",
@@ -44,6 +45,7 @@ $(document).ready(function() {
           });
         }else{//devuele el person_id de la persona correspondiente al DNI
           $('#formEditPerson').fadeIn(700);
+          $('#saveStatus').val("edit")
           for (let item of data) {
             $('#personIdEditar').val(item.person_id)
             $('#dniRegistro').val(item.dni)
@@ -57,8 +59,7 @@ $(document).ready(function() {
           }
 
         }
-        //alert(data)
-        //alert('successBtnValidar')
+
       })
       .fail(function() {
         console.log("error");
@@ -84,7 +85,7 @@ $(document).ready(function() {
           swal('EventManager','La asistencia fue registrada','success')
         })
 
-        //alert(eventPersonId)
+
       }
     })
 
@@ -94,6 +95,7 @@ $(document).ready(function() {
  * Button "Confirmar Datos" , event click
  */
   $("#confirmaDatos").click(function(event) {
+
     let eventId='1'
     let personId = $("#personIdEditar").val();
     let lastname = $("#lastnameRegistro").val();
@@ -102,51 +104,94 @@ $(document).ready(function() {
     let email = $("#emailRegistro").val();
     let movil = $("#movilRegistro").val();
     let location = $("#firstnameRegistro").val();
-
-
+    let saveStatus = $("#saveStatus").val();
+    //alert(personId)
     /******************************************/
-        function  confirmData(eventId,personId){
+        function  confirmData(eventId,personId,saveEventPerson){
 
-          return new Promise((resolve,reject) => {
-            $.ajax({
-              url: 'views/modules/ajax/ajaxEventPerson.php',
-              type: 'POST',
-            //  dataType: 'json',
-              data: {eventId:eventId,personId:personId}
-            })
-            .done(function(data) {
-              if (data) {
+          if (saveEventPerson=='1') {
+
+            return new Promise((resolve,reject) => {
+              let newEventPerson = '1'
+              let visitorId ='1'
+              let detalleVisitorId ='1'
+              let confirmation = 'SI'
+
+              $.ajax({
+                url: 'views/modules/ajax/ajaxEventPerson.php',
+                type: 'POST',
+              //  dataType: 'json',
+                data: {newEventPerson:newEventPerson,eventIdNew:eventId,personId:personId,visitorId:visitorId,detalleVisitorId:detalleVisitorId,confirmation:confirmation}
+              })
+              .done(function(data) {
+                //
                 resolve(data)
-              }else{
-                reject(data)
-              }
+                // if (data!='error') {
+                //
+                // }else{
+                //   reject(data)
+                // }
+
+              })
+              .fail(function() {
+                console.log("error");
+              })
+              .always(function() {
+                console.log("complete");
+              });
 
             })
-            .fail(function() {
-              console.log("error");
-            })
-            .always(function() {
-              console.log("complete");
-            });
+          }else{
+            return new Promise((resolve,reject) => {
+              $.ajax({
+                url: 'views/modules/ajax/ajaxEventPerson.php',
+                type: 'POST',
+              //  dataType: 'json',
+                data: {eventId:eventId,personId:personId}
+              })
+              .done(function(data) {
+                if (data) {
+                  resolve(data)
+                }else{
+                  reject(data)
+                }
 
-          })
+              })
+              .fail(function() {
+                console.log("error");
+              })
+              .always(function() {
+                console.log("complete");
+              });
+
+            })
         }
+      }// End function ConfirmData
 
 /******************************************/
     function  savePerson(personId){
 
-      if (saveStatus=='new') {
+      if (saveStatus=='new') {// Cuando se esta ingresando un nueva persona
+
         return new Promise((resolve,reject) => {
           let saveNew = 'saveNew'
+
           $.ajax({
             url: 'views/modules/ajax/ajaxPerson.php',
             type: 'POST',
           //  dataType: 'json',
-            data: {saveNew:saveNew,personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
+            data: {saveNew:saveNew,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
           })
           .done(function(data) {
+
             resolve(data)
           })
+          .fail(function() {
+            console.log("error");
+          })
+          .always(function() {
+            console.log("complete");
+          });
         })
       }else{
         return new Promise((resolve,reject) => {
@@ -157,6 +202,7 @@ $(document).ready(function() {
             data: {personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
           })
           .done(function(data) {
+
             resolve(data)
           })
 
@@ -165,28 +211,46 @@ $(document).ready(function() {
       }
 
 
-    }
+    }// End function savePerson
 
     savePerson(personId)
       .then(function (data){
-        confirmData('1',personId)
+        var saveEventPerson= '0'
+        if (saveStatus=="new") {
+
+          saveEventPerson = '1'
+          confirmData('1',data,saveEventPerson)
+          //confirmData('1',personId)
+            .then(function (data){
+              $('#tomarAsistencia').attr('disabled',false)
+              eventPersonId = data
+              swal('EventManager','Datos confirmado con EXITO','success')
+            })
+            .catch(function (data){
+              swal('EventManager','No se pude guardar los datos','error')
+            })
+        }else{
+          saveEventPerson = '0'
+          confirmData('1',personId,saveEventPerson)
+          .then(function (data){
+            $('#tomarAsistencia').attr('disabled',false)
+              //alert('llego a then de confirmdata')
+            eventPersonId = data
+
+            swal('EventManager','Datos confirmado con EXITO','success')
+          })
+          .catch(function (data){
+            swal('EventManager','No se pude guardar los datos','error')
+          })
+        }
+
         //swal('EventManager','Datos confirmado con EXITO','success')
       })
       .catch(error=> console.log(error + ' Noooo'))
 
 
 
-    confirmData('1',personId)
-      .then(function (data){
-        $('#tomarAsistencia').attr('disabled',false)
 
-        eventPersonId = data
-        //alert(eventPersonId)
-        swal('EventManager','Datos confirmado con EXITO','success')
-      })
-      .catch(function (data){
-        swal('EventManager','No se pude guardar los datos','error')
-      })
 
 
 

@@ -12,6 +12,11 @@ class ControllerEventPerson{
 		return $update;
 	}
 
+	public function createEventPersonController($personId,$eventId,$visitorId,$detalleVisitorId,$confirmation,$dateConfirmation){
+		$create = EventPerson::createEventPersonModel('event_persons',$personId,$eventId,$visitorId,$detalleVisitorId,$confirmation,$dateConfirmation);		
+		return $create;
+	}
+
 }
 
 ?>

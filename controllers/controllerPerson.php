@@ -163,7 +163,7 @@ class ControllerPerson{
 
 		public function createPersonController($arrayPerson){
 			$createPerson = Person::createPersonModel($arrayPerson,"persons");
-
+			return $createPerson;
 			if($createPerson == "success"){
 				return 'success';
 			}else {

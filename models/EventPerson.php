@@ -23,5 +23,32 @@ class EventPerson extends Conexion{
     }
 
   }
+
+
+
+  public function createEventPersonModel($tabla,$personId,$eventId,$visitorId,$detalleVisitorId,$confirmation,$dateConfirmation){
+
+    $conexion = new Conexion();
+    $stmt = $conexion->prepare("INSERT INTO $tabla (id,event_id,person_id,visitor_id,detalle_visitor_id,confirmation,date_confirmation)
+                                VALUES (null,:eventId,:personId,:visitorId,:detalleVisitorId,:confirmation,:dateConfirmation)");
+
+    $stmt->bindParam(":personId",$personId,PDO::PARAM_INT);
+    $stmt->bindParam(":eventId",$eventId,PDO::PARAM_INT);
+    $stmt->bindParam(":visitorId",$visitorId,PDO::PARAM_INT);
+    $stmt->bindParam(":detalleVisitorId",$detalleVisitorId,PDO::PARAM_INT);
+    $stmt->bindParam(":confirmation",$confirmation,PDO::PARAM_STR);
+    $stmt->bindParam(":dateConfirmation",$dateConfirmation);
+    
+  if($stmt->execute()){
+      $lastId = $conexion->lastInsertId();
+      return $lastId;
+    }else{
+      return "error";
+    }
+    $stmt->close();
+
+
+  }
+
 }
 ?>

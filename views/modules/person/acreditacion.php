@@ -38,21 +38,21 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 </div>
 
 <?php
-if($_POST){
-  $resultado = new ControllerPerson();
-  $dato=$resultado->searchPersonController('dni');
-
-
-	if ($dato == 0) {
-		echo "<p>Persona no encontrada, revise el numero DNI</p>";
-	}else{
-		//var_dump($dato);
-
-
-	}
-
-
-}
+// if($_POST){
+//   $resultado = new ControllerPerson();
+//   $dato=$resultado->searchPersonController('dni');
+//
+//
+// 	if ($dato == 0) {
+// 		echo "<p>Persona no encontrada, revise el numero DNI</p>";
+// 	}else{
+// 		//var_dump($dato);
+//
+//
+// 	}
+//
+//
+// }
 ?>
 </div>
 

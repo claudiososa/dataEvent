@@ -10,12 +10,20 @@ class AjaxEventPerson {
   private $id;
   private $personId;
   private $eventId;
+  private $visitorId;
+  private $detalleVisitorId;
+  private $confirmation;
+  private $dateConfirmation;
 
-  function __construct($id=NULL,$personId=NULL,$eventId=NULL)
+  function __construct($id=NULL,$personId=NULL,$eventId=NULL,$visitorId=NULL,$detalleVisitorId=NULL,$confirmation=NULL,$dateConfirmation=NULL)
   {
      $this->id = $id;
      $this->personId = $personId;
      $this->eventId = $eventId;
+     $this->visitorId = $visitorId;
+     $this->detalleVisitorId = $detalleVisitorId;
+     $this->confirmation = $confirmation;
+     $this->dateConfirmation = $dateConfirmation;
   }
 
   public function searchEventPersonId(){
@@ -26,6 +34,12 @@ class AjaxEventPerson {
   public function saveConfirm(){
     $confirm = ControllerEventPerson::saveConfirmController($this->id);
     return $confirm;
+  }
+
+  public function createEventPersonId(){
+    $create = ControllerEventPerson::createEventPersonController($this->personId,$this->eventId,
+    $this->visitorId,$this->detalleVisitorId,$this->confirmation,$this->dateConfirmation);
+    return $create;
   }
 
   public function __get($var)
@@ -42,6 +56,9 @@ class AjaxEventPerson {
 
 }
 
+
+
+/************************************************************/
 if (isset($_POST['personId'])) {
 
   $dato = new AjaxEventPerson();
@@ -63,5 +80,29 @@ if (isset($_POST['personId'])) {
   }else{
     //existe algun error
   }
+
+}
+
+/************************************************************/
+
+if (isset($_POST['newEventPerson'])) {
+  //Maestro::debbugPHP($_POST);
+  $dateConfirmation = date("Y-m-d");
+
+  $dato = new AjaxEventPerson();
+  $dato->personId = $_POST['personId'];
+  $dato->eventId = $_POST['eventIdNew'];
+  $dato->visitorId = "1";
+  $dato->detalleVisitorId = "1";
+  $dato->confirmation = "SI";
+  $dato->dateConfirmation = $dateConfirmation;
+
+
+  //Maestro::debbugPHP($dato);
+  $newEventPerson = $dato->createEventPersonId();
+  Maestro::debbugPHP($newEventPerson);
+  echo $newEventPerson;
+  
+
 
 }

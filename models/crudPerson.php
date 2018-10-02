@@ -292,18 +292,20 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
 
   public function createPersonModel($arrayPerson,$tabla){
     $conexion = new Conexion();
-    $stmt = $conexion->prepare("INSERT INTO $tabla (lastname,firstname,dni,cuil,email,movil,location) VALUES ()
-      WHERE person_id=:person_id");
-      $stmt->bindParam(":person_id",$arrayPerson['personId'],PDO::PARAM_INT);
-      $stmt->bindParam(":lastname",$arrayPerson['lastname'],PDO::PARAM_STR);
-      $stmt->bindParam(":firstname",$arrayPerson['firstname'],PDO::PARAM_STR);
-      $stmt->bindParam(":dni",$arrayPerson['dni'],PDO::PARAM_INT);
-      $stmt->bindParam(":email",$arrayPerson['email'],PDO::PARAM_STR);
-      $stmt->bindParam(":movil",$arrayPerson['movil'],PDO::PARAM_STR);
-      $stmt->bindParam(":location",$arrayPerson['location'],PDO::PARAM_STR);
+    $stmt = $conexion->prepare("INSERT INTO $tabla (person_id,lastname,firstname,dni,cuil,email,movil,location)
+                                VALUES (null,:lastname,:firstname,:dni,:cuil,:email,:movil,:location)");
 
+    $stmt->bindParam(":lastname",$arrayPerson['lastname'],PDO::PARAM_STR);
+    $stmt->bindParam(":firstname",$arrayPerson['firstname'],PDO::PARAM_STR);
+    $stmt->bindParam(":dni",$arrayPerson['dni'],PDO::PARAM_INT);
+    $stmt->bindParam(":cuil",$arrayPerson['dni'],PDO::PARAM_INT);
+    $stmt->bindParam(":email",$arrayPerson['email'],PDO::PARAM_STR);
+    $stmt->bindParam(":movil",$arrayPerson['movil'],PDO::PARAM_STR);
+    $stmt->bindParam(":location",$arrayPerson['location'],PDO::PARAM_STR);
+    //return $stmt;
   if($stmt->execute()){
-      return "success";
+      $lastId = $conexion->lastInsertId();
+      return $lastId;
     }else{
       return "error";
     }
