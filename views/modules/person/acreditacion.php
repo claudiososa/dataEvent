@@ -12,7 +12,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 					<h5 class="card-title">Buscar Persona:</h5>
 
 
-					<form  class="formSearchPerson" align="center" action="" name="searchPerson" method="POST">
+					<form  class="formSearchPerson" align="center" action="" name="searchPerson" id="formSearchPerson" method="POST">
 
 								<div class="input-group divSearchDni">
 									<div class="input-group-prepend">

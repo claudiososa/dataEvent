@@ -1,11 +1,14 @@
 
 $(document).ready(function() {
-  let eventPersonId = 0
 
+  let eventPersonId = 0
   $('#tomarAsistencia').attr('disabled',true)
 
+  $('#formSearchPerson').submit(function() {
+  return false;
+  });
 
-    $('#btnSearchPerson').click( function (event){
+  $('#btnSearchPerson').click( function (event){// Event click for Botton 'Buscar'
       //alert('presiono boton buscar')
       let dni = $("#dni").val()
       let searchDni = 'searchDni'
@@ -68,7 +71,15 @@ $(document).ready(function() {
         console.log("complete");
       });
 
-    })
+    })// End click for Botton 'Buscar'
+
+
+    $('#dni').keypress(function(e){
+      if(e.which == 13){//Enter key pressed
+        //alert('presiono enter')
+        $('#btnSearchPerson').click();//Trigger search button click event
+      }
+    });
 
     $('#tomarAsistencia').click( function (event){
 
@@ -80,7 +91,8 @@ $(document).ready(function() {
           data: {eventPersonId:eventPersonId}
         })
         .done(function(data) {
-          console.log("success");
+          //console.log("success");
+          $("#dni").val('')
           $('#formEditPerson').fadeOut(700);
           swal('EventManager','La asistencia fue registrada','success')
         })
