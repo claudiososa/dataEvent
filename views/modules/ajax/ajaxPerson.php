@@ -49,6 +49,7 @@ class AjaxPerson {
   public function searchDni(){
     $person=0;
     $search = ControllerPerson::searchDniPersonController($this->dni);
+    Maestro::debbugPHP($search);
     echo $search;
   }
 }
