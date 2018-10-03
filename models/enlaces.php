@@ -48,6 +48,11 @@ class Paginas{
 
 			$module =  "views/modules/person.php";
 
+		}else if ($enlaces == "personConfirmate"){
+
+			$module =  "views/modules/".$enlaces.".php";
+
+
 		}else{
 
 			$module =  "views/modules/registro.php";

@@ -246,6 +246,30 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
           return $stmt->fetchAll();
           $stmt->close();
         }
+    // Vista de usuarios - Listado de personas Confirmadas
+    // **************************************************
+
+        public function vistaPersonModelConfirmate($tabla,$tipo){
+          $conexion = new Conexion();
+          if(isset($tipo)){
+            $sentencia = "SELECT * FROM persons INNER JOIN event_persons ON (persons.person_id = event_persons.person_id) WHERE event_persons.confirmation = 'SI' AND event_persons.event_id = 1 ";
+           // $sentencia .= $tabla;
+           // $sentencia .= ' INNER JOIN event_persons ON (';
+            //$sentencia .= $tabla;
+           // $sentencia .= '.person_id=event_persons.person_id)';
+           // $sentencia .= ' WHERE event_persons.confirmation= SI"';
+            //$sentencia .= $tipo.'"';
+            $stmt = $conexion->prepare($sentencia);
+          }else{
+            $stmt = $conexion->prepare("SELECT * FROM $tabla ");
+          }
+          //var_dump($stmt);
+         // echo($sentencia);
+          $stmt->execute();
+          return $stmt->fetchAll();
+          $stmt->close();
+        }    
+     
 
     //Editar usuarios
     //************************************************
