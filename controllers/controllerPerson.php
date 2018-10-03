@@ -148,6 +148,15 @@ class ControllerPerson{
 		//var_dump($respuesta[1][2]);
 	}
 
+	// Vista de usuarios - Listar Personas Confirmadas
+	// ***********************************************
+
+   public function vistaPersonControllerConfirmate($table,$type){
+		$respuesta = Person::vistaPersonModelConfirmate($table,$type);
+		return $respuesta;
+		//var_dump($respuesta[1][2]);
+	}
+
 	// Editar usuarios
 	//*********************************************************
 	public function editarPersonController(){
