@@ -251,6 +251,12 @@ span.input-group-text img{
 div.card-body.cardBodyModificarPerson{
   text-align: center;
 }
+img.banner1{
+  /*border: 2px solid blue;*/
+display: block;
+margin: auto;
+height: 600px;
+}
 
 /*******SEARCH PERSON*******/
 

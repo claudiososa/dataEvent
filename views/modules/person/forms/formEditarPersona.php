@@ -70,16 +70,22 @@
         <div class="form-inline">
           <label for="direccionRegistro">Tipo:</label>
           <select class="form-control personTipo" id="selPersonTipo">
-            <option value="1">Supervisor</option>
-            <option value="2">Profesor</option>
+            <option value="1">Supervisor/a</option>
+            <option value="2">Director/a</option>
+            <option value="3">Vicedirector/a</option>
+            <option value="4">Profesor/a</option>
+            <option value="5">Otros/a</option>
 
           </select>
         </div>
         <div class="form-inline">
           <label for="direccionRegistro">Nivel:</label>
           <select class="form-control personNivel" id="selPersonNivel">
-            <option value="1">Privado</option>
-            <option value="2">Estatal</option>
+            <option value="1">Inicial</option>
+            <option value="2">Primario</option>
+            <option value="3">Secundario</option>
+            <option value="4">Superior</option>
+            <option value="4">Técnica</option>
 
           </select>
         </div>
@@ -90,8 +96,9 @@
         </div> -->
       </form>
       <div align="center" class="btnFormPerson">
-      <button class="btn btn-primary btnConfirmardatos" id="confirmaDatos" value="Confirmar">Confirmar Datos</button>
-      <button class="btn btn-primary btnPresente" id="tomarAsistencia" value="Asistencia">Presente</button>
+
+      <button class="btn btn btn-outline-info btn-lg  btnConfirmardatos" id="confirmaDatos" value="Confirmar"><b>Confirmar Datos</b></button>
+      <button class="btn btn btn-outline-info btn-lg  btnPresente" id="tomarAsistencia" value="Asistencia"><b>Presente</b></button>
     </div>
     </div>
   </div>
