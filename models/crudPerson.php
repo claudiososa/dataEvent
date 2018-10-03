@@ -293,8 +293,8 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
 
   public function createPersonModel($arrayPerson,$tabla){
     $conexion = new Conexion();
-    $stmt = $conexion->prepare("INSERT INTO $tabla (person_id,lastname,firstname,dni,cuil,email,movil,location)
-                                VALUES (null,:lastname,:firstname,:dni,:cuil,:email,:movil,:location)");
+    $stmt = $conexion->prepare("INSERT INTO $tabla (person_id,lastname,firstname,dni,cuil,email,movil,location,province)
+                                VALUES (null,:lastname,:firstname,:dni,:cuil,:email,:movil,:location,:province)");
 
     $stmt->bindParam(":lastname",$arrayPerson['lastname'],PDO::PARAM_STR);
     $stmt->bindParam(":firstname",$arrayPerson['firstname'],PDO::PARAM_STR);
@@ -303,6 +303,8 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
     $stmt->bindParam(":email",$arrayPerson['email'],PDO::PARAM_STR);
     $stmt->bindParam(":movil",$arrayPerson['movil'],PDO::PARAM_STR);
     $stmt->bindParam(":location",$arrayPerson['location'],PDO::PARAM_STR);
+    $stmt->bindParam(":province",$arrayPerson['province'],PDO::PARAM_STR);
+
     //return $stmt;
   if($stmt->execute()){
       $lastId = $conexion->lastInsertId();
@@ -316,7 +318,7 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
 
   public function updatePersonModel($arrayPerson,$tabla){
       $conexion = new Conexion();
-      $stmt = $conexion->prepare("UPDATE $tabla SET lastname=:lastname,firstname=:firstname,dni=:dni,email=:email,movil=:movil,location=:location
+      $stmt = $conexion->prepare("UPDATE $tabla SET lastname=:lastname,firstname=:firstname,dni=:dni,email=:email,movil=:movil,province=:province,location=:location
         WHERE person_id=:person_id");
         $stmt->bindParam(":person_id",$arrayPerson['personId'],PDO::PARAM_INT);
         $stmt->bindParam(":lastname",$arrayPerson['lastname'],PDO::PARAM_STR);
@@ -325,6 +327,7 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
         $stmt->bindParam(":email",$arrayPerson['email'],PDO::PARAM_STR);
         $stmt->bindParam(":movil",$arrayPerson['movil'],PDO::PARAM_STR);
         $stmt->bindParam(":location",$arrayPerson['location'],PDO::PARAM_STR);
+        $stmt->bindParam(":province",$arrayPerson['province'],PDO::PARAM_STR);
 
     if($stmt->execute()){
         return "success";

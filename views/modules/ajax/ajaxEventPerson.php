@@ -64,14 +64,16 @@ if (isset($_POST['personId'])) {
   $dato = new AjaxEventPerson();
   $dato->personId = $_POST['personId'];
   $dato->eventId = $_POST['eventId'];
+  $dato->visitorId = $_POST['visitorId'];
+  $dato->detalleVisitorId = $_POST['detalleVisitorId'];
 
   $eventPersonId = $dato->searchEventPersonId();
 
   if ($eventPersonId) {
-    $eventPerson = new AjaxEventPerson($eventPersonId['id']);
-    $data = $eventPerson->saveConfirm();
+    $eventPerson = new AjaxEventPerson($eventPersonId['id'],null,null,$_POST['visitorId'],$_POST['detalleVisitorId']);
+    //$data = $eventPerson->saveConfirm();
 
-    $confirm = ControllerEventPerson::saveConfirmController($eventPersonId['id']);
+    $confirm = ControllerEventPerson::saveConfirmController($eventPersonId['id'],$_POST['visitorId'],$_POST['detalleVisitorId']);
 
     if ($confirm) {
       echo $confirm;
@@ -90,19 +92,19 @@ if (isset($_POST['newEventPerson'])) {
   $dateConfirmation = date("Y-m-d");
 
   $dato = new AjaxEventPerson();
-  $dato->personId = $_POST['personId'];
+  $dato->personId = $_POST['personIdNew'];
   $dato->eventId = $_POST['eventIdNew'];
-  $dato->visitorId = "1";
-  $dato->detalleVisitorId = "1";
+  $dato->visitorId = $_POST['visitorId'];
+  $dato->detalleVisitorId = $_POST['detalleVisitorId'];
   $dato->confirmation = "SI";
   $dato->dateConfirmation = $dateConfirmation;
 
 
   //Maestro::debbugPHP($dato);
   $newEventPerson = $dato->createEventPersonId();
-  Maestro::debbugPHP($newEventPerson);
+  //Maestro::debbugPHP($newEventPerson);
   echo $newEventPerson;
-  
+
 
 
 }

@@ -35,7 +35,8 @@
           <!-- Editar -->
         <div class="form-inline">
           <label for="direccionRegistro">Provincia:</label>
-          <select class="form-control personProvincia" id="">
+          <select class="form-control personProvincia" id="selProvinceRegistro">
+             <option value="SIN REGISTRAR">Seleccione</option>
              <option value="BUENOS AIRES">Bs. As.</option>
              <option value="CATAMARCA">Catamarca</option>
              <option value="CHACO">Chaco</option>

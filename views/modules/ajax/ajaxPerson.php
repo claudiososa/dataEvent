@@ -12,6 +12,7 @@ class AjaxPerson {
   public $email;
   public $movil;
   public $location;
+  public $province;
 
 
   public function createPerson(){
@@ -22,7 +23,8 @@ class AjaxPerson {
             'dni' => $this->dni,
             'email' => $this->email,
             'movil' => $this->movil,
-            'location' => $this->location
+            'location' => $this->location,
+            'province' => $this->province
     );
     //Maestro::debbugPHP($arrayPerson);
     $create = ControllerPerson::createPersonController($arrayPerson);
@@ -39,17 +41,19 @@ class AjaxPerson {
             'dni' => $this->dni,
             'email' => $this->email,
             'movil' => $this->movil,
-            'location' => $this->location
+            'location' => $this->location,
+            'province' => $this->province
     );
     //Maestro::debbugPHP($arrayPerson);
     $guardar = ControllerPerson::updatePersonController($arrayPerson);
+    //Maestro::debbugPHP($guardar);
     echo $guardar;
   }
 
   public function searchDni(){
     $person=0;
     $search = ControllerPerson::searchDniPersonController($this->dni);
-    Maestro::debbugPHP($search);
+    //Maestro::debbugPHP($search);
     echo $search;
   }
 }
@@ -57,7 +61,7 @@ class AjaxPerson {
 /******************************************************/
 
 if (isset($_POST['personId'])) {
-
+//Maestro::debbugPHP($_POST);
   $a = new AjaxPerson();
 
   $a->personId = $_POST['personId'];
@@ -67,6 +71,7 @@ if (isset($_POST['personId'])) {
   $a->email = $_POST['email'];
   $a->movil = $_POST['movil'];
   $a->location = $_POST['location'];
+  $a->province = $_POST['province'];
 //Maestro::debbugPHP($a);
   $a->updatePerson();
 }
@@ -94,6 +99,7 @@ if (isset($_POST['saveNew'])) {
   $a->email = $_POST['email'];
   $a->movil = $_POST['movil'];
   $a->location = $_POST['location'];
+  $a->province = $_POST['province'];
 //Maestro::debbugPHP($a);
   $a->createPerson();
 }

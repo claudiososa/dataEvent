@@ -59,8 +59,8 @@ $(document).ready(function() {
             $('#firstnameRegistro').val(item.firstname)
             $('#emailRegistro').val(item.email)
             $('#movilRegistro').val(item.movil)
+            $("#selProvinceRegistro option[value='"+item.province+"']").attr('selected', 'selected');
             $('#locationRegistro').val(item.location)
-
             $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
             $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
 
@@ -123,25 +123,28 @@ $(document).ready(function() {
     let dni = $("#dniRegistro").val();
     let email = $("#emailRegistro").val();
     let movil = $("#movilRegistro").val();
-    let location = $("#firstnameRegistro").val();
+    //let location = $("#firstnameRegistro").val();
     let saveStatus = $("#saveStatus").val();
+    let location = $('#locationRegistro').val()
+    let province = $('#selProvinceRegistro').val()
+
     //alert(personId)
     /******************************************/
-        function  confirmData(eventId,personId,saveEventPerson){
+        function  confirmData(eventId,personId,saveEventPerson,visitorId,detalleVisitorId){
 
           if (saveEventPerson=='1') {
 
             return new Promise((resolve,reject) => {
               let newEventPerson = '1'
-              let visitorId ='1'
-              let detalleVisitorId ='1'
+              // let visitorId ='1'
+              // let detalleVisitorId ='1'
               let confirmation = 'SI'
 
               $.ajax({
                 url: 'views/modules/ajax/ajaxEventPerson.php',
                 type: 'POST',
               //  dataType: 'json',
-                data: {newEventPerson:newEventPerson,eventIdNew:eventId,personId:personId,visitorId:visitorId,detalleVisitorId:detalleVisitorId,confirmation:confirmation}
+                data: {newEventPerson:newEventPerson,eventIdNew:eventId,personIdNew:personId,visitorId:visitorId,detalleVisitorId:detalleVisitorId,confirmation:confirmation}
               })
               .done(function(data) {
                 //
@@ -167,7 +170,7 @@ $(document).ready(function() {
                 url: 'views/modules/ajax/ajaxEventPerson.php',
                 type: 'POST',
               //  dataType: 'json',
-                data: {eventId:eventId,personId:personId}
+                data: {eventId:eventId,personId:personId,visitorId:visitorId,detalleVisitorId:detalleVisitorId}
               })
               .done(function(data) {
                 if (data) {
@@ -190,7 +193,7 @@ $(document).ready(function() {
 
 /******************************************/
     function  savePerson(personId){
-
+      
       if (saveStatus=='new') {// Cuando se esta ingresando un nueva persona
 
         return new Promise((resolve,reject) => {
@@ -200,7 +203,7 @@ $(document).ready(function() {
             url: 'views/modules/ajax/ajaxPerson.php',
             type: 'POST',
           //  dataType: 'json',
-            data: {saveNew:saveNew,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
+            data: {saveNew:saveNew,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location,province:province}
           })
           .done(function(data) {
 
@@ -219,7 +222,7 @@ $(document).ready(function() {
             url: 'views/modules/ajax/ajaxPerson.php',
             type: 'POST',
           //  dataType: 'json',
-            data: {personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location}
+            data: {personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location,province:province}
           })
           .done(function(data) {
 
@@ -237,9 +240,11 @@ $(document).ready(function() {
       .then(function (data){
         var saveEventPerson= '0'
         if (saveStatus=="new") {
+          let visitorId = $('#selPersonTipo').val()
+          let detalleVisitorId = $('#selPersonNivel').val()
 
           saveEventPerson = '1'
-          confirmData('1',data,saveEventPerson)
+          confirmData('1',data,saveEventPerson,visitorId,detalleVisitorId)
           //confirmData('1',personId)
             .then(function (data){
               $('#tomarAsistencia').attr('disabled',false)
@@ -255,7 +260,10 @@ $(document).ready(function() {
             })
         }else{
           saveEventPerson = '0'
-          confirmData('1',personId,saveEventPerson)
+          let visitorId = $('#selPersonTipo').val()
+          let detalleVisitorId = $('#selPersonNivel').val()
+
+          confirmData('1',personId,saveEventPerson,visitorId,detalleVisitorId)
           .then(function (data){
             $('#tomarAsistencia').attr('disabled',false)
             eventPersonId = data

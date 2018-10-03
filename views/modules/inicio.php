@@ -1,15 +1,9 @@
-<!-- Header -->
-<!-- <header class="masthead">
-    <div class="container">
-  <img class="img-fluid" src="img/escudo.png" alt="EscudoColegio5159">
-        <div class="intro-text">
-            <span class="name">Bienvenidos</span>
-            <hr class="star-light">
-        </div>
-    </div>
-</header> -->
-
 <?php
+
+if(!isset($_SESSION["typeUser"])){
+	header("location:index.php?action=ingresar");
+	exit();
+}
 
 //echo $_SESSION["typeUser"];
 if(isset($_SESSION["typeUser"])){
