@@ -33,6 +33,9 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 
 </div>
 
+<div class="containerPerson" id="eventImg">
+	<img src="img/1.jpg" alt="">
+</div>
 <div class="containerPerson mt-2" id="formEditPerson">
 	<?php require_once "forms/formEditarPersona.php"; ?>
 </div>

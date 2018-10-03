@@ -32,7 +32,8 @@ $(document).ready(function() {
           })
           .then((willDelete) => {
             if (willDelete) {
-              $('#formEditPerson').fadeIn(600);
+              $('#eventImg').fadeOut(0);
+              $('#formEditPerson').fadeIn(900);
               $('#saveStatus').val("new")
               $('#personIdEditar').val("")
               $('#dniRegistro').val($('#dni').val())
@@ -49,7 +50,8 @@ $(document).ready(function() {
           });
         }else{//devuele el person_id de la persona correspondiente al DNI
           //debugger
-          $('#formEditPerson').fadeIn(700);
+          $('#eventImg').fadeOut(0);
+          $('#formEditPerson').fadeIn(900);
           $('#saveStatus').val("edit")
           $('#confirmaDatos').focus()
           for (let item of data) {
@@ -99,6 +101,7 @@ $(document).ready(function() {
           //console.log("success");
           $("#dni").val('')
           $('#formEditPerson').fadeOut(700);
+          $('#eventImg').fadeIn(900);
           swal('EventManager','La asistencia fue registrada','success')
             .then(function(){
               $('#dni').focus()
@@ -193,7 +196,7 @@ $(document).ready(function() {
 
 /******************************************/
     function  savePerson(personId){
-      
+
       if (saveStatus=='new') {// Cuando se esta ingresando un nueva persona
 
         return new Promise((resolve,reject) => {
