@@ -1,7 +1,5 @@
 $(document).ready(function() {
-  let selProvince = 1
   let eventPersonId = 0
-
   $('#tomarAsistencia').attr('disabled',true)
 
   $('#formSearchPerson').submit(function() {
@@ -9,14 +7,6 @@ $(document).ready(function() {
   });
 
   $('#btnSearchPerson').click( function (event){// Event click for Botton 'Buscar'
-      if (selProvince != 1) {
-        $("#selProvinceRegistro option[value='"+selProvince+"']").attr('selected', false);
-      }
-
-
-
-
-      //alert('presiono boton buscar')
       let dni = $("#dni").val()
       let searchDni = 'searchDni'
 
@@ -51,7 +41,7 @@ $(document).ready(function() {
               $('#locationRegistro').val("")
               $('#lastnameRegistro').focus()
             } else {
-              $('#dni').focus()
+              $('#dni').fo44447381cus()
               //swal("Your imaginary file is safe!");
             }
           });
@@ -61,6 +51,7 @@ $(document).ready(function() {
           $('#formEditPerson').fadeIn(900);
           $('#saveStatus').val("edit")
           $('#confirmaDatos').focus()
+          $("#selProvinceRegistro").empty()
           for (let item of data) {
             $('#personIdEditar').val(item.person_id)
             $('#dniRegistro').val(item.dni)
@@ -68,9 +59,9 @@ $(document).ready(function() {
             $('#firstnameRegistro').val(item.firstname)
             $('#emailRegistro').val(item.email)
             $('#movilRegistro').val(item.movil)
-            //$("#selProvinceRegistro option[value='"+item.province+"']").attr('selected', true);
+            let htmlSelProvince = selectedProvince(item.province)
+            $(htmlSelProvince).appendTo('#selProvinceRegistro')
             $('#locationRegistro').val(item.location)
-            selProvince = item.province
             $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
             $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
 
@@ -90,9 +81,8 @@ $(document).ready(function() {
 
 
     $('#dni').keypress(function(e){
-      if(e.which == 13){//Enter key pressed
-        //alert('presiono enter')
-        $('#btnSearchPerson').click();//Trigger search button click event
+      if(e.which == 13){
+        $('#btnSearchPerson').click();
       }
     });
 
@@ -102,11 +92,9 @@ $(document).ready(function() {
         $.ajax({
           url: 'views/modules/ajax/ajaxAttendance.php',
           type: 'POST',
-        //  dataType: 'json',
           data: {eventPersonId:eventPersonId}
         })
         .done(function(data) {
-          //console.log("success");
           $("#dni").val('')
           $('#formEditPerson').fadeOut(700);
           $('#eventImg').fadeIn(900);
@@ -289,16 +277,8 @@ $(document).ready(function() {
             swal('EventManager','No se pude guardar los datos','error')
           })
         }
-
-
-        //swal('EventManager','Datos confirmado con EXITO','success')
       })
       .catch(error=> console.log(error + ' Noooo'))
-
-
-
-
-
 
 
   });//End event clic for "Confirmar datos"

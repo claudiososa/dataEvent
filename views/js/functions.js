@@ -1,6 +1,6 @@
 
-function searchProvince(name){
-
+function selectedProvince(name){
+  let contentHmtl = ''
   let provinces = [
     "SIN REGISTRAR",
     "BUENOS AIRES",
@@ -29,9 +29,17 @@ function searchProvince(name){
   ]
 
 
-  var province = provinces.indexOf(name)
-  return province
+  var indiceActual = provinces.indexOf(name)
+
+  provinces.forEach(function (element,i){
+    if (i===indiceActual) {
+    contentHmtl += `<option value="${element}" selected>${element}</option>`
+    }
+    contentHmtl += `<option value="${element}">${element}</option>`
+  })
+
+  return contentHmtl
 }
 
 
-searchProvince('SALTA')
+//searchProvince('SALTA')
