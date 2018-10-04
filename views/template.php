@@ -12,6 +12,7 @@
     <script src="views/js/pooper.min.js" type="text/javascript"></script>
     <script src="views/bootstrap/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="views/js/loginJs.js"></script>
+    <script type="text/javascript" src="views/js/functions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
     <script type="text/javascript" src="views/js/tableExport/FileSaver.min.js"></script>

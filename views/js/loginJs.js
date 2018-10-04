@@ -1,7 +1,7 @@
-
 $(document).ready(function() {
-
+  let selProvince = 1
   let eventPersonId = 0
+
   $('#tomarAsistencia').attr('disabled',true)
 
   $('#formSearchPerson').submit(function() {
@@ -9,6 +9,13 @@ $(document).ready(function() {
   });
 
   $('#btnSearchPerson').click( function (event){// Event click for Botton 'Buscar'
+      if (selProvince != 1) {
+        $("#selProvinceRegistro option[value='"+selProvince+"']").attr('selected', false);
+      }
+
+
+
+
       //alert('presiono boton buscar')
       let dni = $("#dni").val()
       let searchDni = 'searchDni'
@@ -61,8 +68,9 @@ $(document).ready(function() {
             $('#firstnameRegistro').val(item.firstname)
             $('#emailRegistro').val(item.email)
             $('#movilRegistro').val(item.movil)
-            $("#selProvinceRegistro option[value='"+item.province+"']").attr('selected', 'selected');
+            //$("#selProvinceRegistro option[value='"+item.province+"']").attr('selected', true);
             $('#locationRegistro').val(item.location)
+            selProvince = item.province
             $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
             $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
 
@@ -209,7 +217,9 @@ $(document).ready(function() {
             data: {saveNew:saveNew,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location,province:province}
           })
           .done(function(data) {
+            //debugger
 
+            //$("#selProvinceRegistro option[value='"+selProvince+"']").attr('selected', false);
             resolve(data)
           })
           .fail(function() {
@@ -228,7 +238,6 @@ $(document).ready(function() {
             data: {personId:personId,lastname:lastname,firstname:firstname,dni:dni,email:email,movil:movil,location:location,province:province}
           })
           .done(function(data) {
-
             resolve(data)
           })
 
