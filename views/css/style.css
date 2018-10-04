@@ -32,11 +32,11 @@ font-size: 1.25rem;
 
 /*******LOGIN*****/
 
-.cardBody h4{
+.cardBody h3,h4{
   color:#003764;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  padding-bottom: 0;
 
 }
 input.form-control.formUser{
@@ -251,11 +251,13 @@ span.input-group-text img{
 div.card-body.cardBodyModificarPerson{
   text-align: center;
 }
-img.banner1{
+#eventImg img{
   /*border: 2px solid blue;*/
-display: block;
+/*display: block;
 margin: auto;
-height: 600px;
+height: 600px;*/
+width: 100%;
+max-height: 450px;
 }
 
 /*******SEARCH PERSON*******/
@@ -285,7 +287,7 @@ div.card.cardFormPerson{
   border-radius: 15px;
 }
 div.card-body.cardBodyPerson{
-  padding: 30px 120px ;
+  padding: 30px 90px ;
 
 }
 .cardFormPerson h3{
@@ -422,7 +424,17 @@ div.btnFormPerson  button.btn.btn-primary{
 div.btnFormPerson{
   padding-top: 2rem;
 }
+
 /*******FORM EDIT PERSON*****/
+
+/*******PERSON CONFIRMATE*****/
+.tablePerson{
+  background-color: #ffffff;
+  border-color: #6DD5ED;
+  color: #003764;
+}
+
+/*******PERSON CONFIRMATE*****/
 
 
 

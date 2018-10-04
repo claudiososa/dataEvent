@@ -4,7 +4,8 @@
 		<div class="col">
 			<div class="card panelLogin">
 				<div class="card-body cardBody">
-					<h4 >LOGIN</h4>
+					<h3>Event Manager</h3>
+					<h4 class="pb-2">LOGIN</h4>
 
 
 					<form class="formLogin needs-validation"  action="" name="iniciosesion" method="POST" novalidate>
