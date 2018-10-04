@@ -32,10 +32,18 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 	</div>
 
 </div>
+<section id="eventImg">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<img  class="banner1 pt-3 img-fluid"src="img/fondo.jpg" alt="bannerCIENASUD2018">
 
-<div class="containerPersonImg" id="eventImg">
-	<img  class="banner1 pt-5"src="img/1.jpg" alt="">
-</div>
+			</div>
+
+		</div>
+	</div>
+
+</section>
 <div class="containerPerson mt-2" id="formEditPerson">
 	<?php require_once "forms/formEditarPersona.php"; ?>
 </div>

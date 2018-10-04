@@ -15,13 +15,13 @@
 		<?php
 		if(isset($_SESSION["typeUser"]))
 		{
-			echo '<li class="nav-item active" id="1a"><a class="nav-link" href="index.php?action=personConfirmate">Confirmados<span class="sr-only">(current)</span></a></li>';
 			echo '<li class="nav-item active" id="1a"><a class="nav-link" href="index.php?action=ok">Inicio<span class="sr-only">(current)</span></a></li>';
+			echo '<li class="nav-item active" id="1a"><a class="nav-link" href="index.php?action=personConfirmate">Confirmados<span class="sr-only">(current)</span></a></li>';
 		}else{
      echo '<li><a href="index.php?action=ingresar">Ingreso</a></li>';
 		}
  		?>
-	
+
 
 
 		<!-- <li class="nav-item"><a class="nav-link"href="index.php?action=salir">Cerrar Sesión</a></li> -->
