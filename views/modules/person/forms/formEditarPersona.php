@@ -7,7 +7,7 @@
         <input type="hidden" id="saveStatus" name="saveStatus" value='edit'>
         <input type="hidden" id="personIdEditar" name="personIdEditar" value='<?php echo $item["person_id"] ?>'>
 
-        <h3>Datos Encontrados:</h3>
+        <h3 class="pb-2 pt-2">Datos Encontrados:</h3>
         <div class="form-group formGroupPerson">
           <!-- <label for="dniRegistro">DNI:</label> -->
           <input type="text" class="form-control personDni" placeholder="DNI" name="dniRegistro" maxlength="8"  value='<?php echo $item["dni"] ?>'	id="dniRegistro" readonly required>

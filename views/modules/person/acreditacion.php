@@ -44,7 +44,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 	</div>
 
 </section>
-<div class="containerPerson mt-2" id="formEditPerson">
+<div class="containerPerson mt-4" id="formEditPerson">
 	<?php require_once "forms/formEditarPersona.php"; ?>
 </div>
 

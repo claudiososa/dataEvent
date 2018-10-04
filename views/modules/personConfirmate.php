@@ -9,7 +9,7 @@ if($_SESSION["typeUser"]<>'operador'){
  ?>
 <section class""id="personConfirmate">
 	<div class="container">
-		<!-- <button type="button" class="btn btn-outline-light mt-5" id="btnTable">Descargar a Excel</button> -->
+		<button type="button" class="btn btn-outline-light mt-5" id="btnTable">Descargar a Excel</button>
 		<div class="row">
 			<div class="col table-responsive">
 				<table class="table table-bordered table-hover tablePerson mt-4" id="tablePerson">

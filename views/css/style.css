@@ -281,13 +281,13 @@ max-height: 450px;
 
 }*/
 div.card.cardFormPerson{
-  max-width:1200px;
+  max-width:600px;
   width: auto;
   margin: auto;
   border-radius: 15px;
 }
 div.card-body.cardBodyPerson{
-  padding: 30px 90px ;
+  padding: 10px 40px ;
 
 }
 .cardFormPerson h3{
@@ -422,7 +422,7 @@ div.btnFormPerson  button.btn.btn-primary{
 
 }
 div.btnFormPerson{
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 /*******FORM EDIT PERSON*****/
