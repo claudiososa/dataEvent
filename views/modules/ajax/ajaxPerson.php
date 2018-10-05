@@ -177,7 +177,7 @@ if (isset($_POST['personIdPrint'])) {
     //Maestro::debbugPHP($data);
   echo $data['dni'];
   $person->createPdf($data);
-  $person->createAllPdf();
+  //$person->createAllPdf();
 }
 
 if (isset($_POST['btnCertificadoColor'])) {
