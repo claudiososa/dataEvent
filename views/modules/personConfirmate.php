@@ -1,12 +1,10 @@
+<script type="text/javascript" src="views/js/printCertificate.js"></script>
 <?php
-
-
 if($_SESSION["typeUser"]<>'operador'){
 	header("location:index.php?action=ingresar");
 	exit();
 }
-
- ?>
+?>
 <section class""id="personConfirmate">
 	<div class="container">
 		<button type="button" class="btn btn-outline-light mt-5" id="btnTable">Descargar a Excel</button>
@@ -20,7 +18,8 @@ if($_SESSION["typeUser"]<>'operador'){
 					    <th>Nombre</th>
 					    <th>DNI</th>
 			        <th>Confirmado</th>
-			        <th>Evento</th>
+			        <th>Fecha Conf.</th>
+							<th>Impresión</th>
 				    </tr>
 				  </thead>
 				  <tbody>
@@ -31,17 +30,19 @@ if($_SESSION["typeUser"]<>'operador'){
  		 			$ver->borrarPersonController();
 
  		 			foreach ($lista as $key => $item) {
- 		 				# code...
-
- 		 			echo '<tr>
+						$date = new DateTime($item["date_confirmation"]);
+ 		 				echo '<tr>
  		 				  <td>'.$item["person_id"].'</td>
  		 			      <td>'.$item["lastname"].'</td>
  		 			      <td>'.$item["firstname"].'</td>
  		 			      <td>'.$item["dni"].'</td>
  		 			      <td>'.$item["confirmation"].'</td>
- 		 			      <td>'.$item["event_id"].'</td>
+ 		 			      <td>'.$date->format('d-m-Y').'</td>
+								<td><button class="btn btn-success" id="buttonToPrint'.$item["person_id"].'">Imprimir Certificado</button></td>
+
 
  		 				</tr>';
+						//<td><button class="btn btn-success" id="buttonToPrint'.$item["person_id"].'">Imprimir Certificado</button></td>
  		 			}
 
  		 			 ?>

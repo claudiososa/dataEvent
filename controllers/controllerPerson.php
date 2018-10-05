@@ -44,6 +44,11 @@ class ControllerPerson{
 		return $result;
 	}
 
+	public function searchPersonIdController($personId){
+		$result = Person::searchPersonIdModel($personId);
+		return $result;
+	}
+
 	public function searchPersonController($typeSearch=NULL,$person_id=NULL){
 		switch ($typeSearch) {
 			case 'form':

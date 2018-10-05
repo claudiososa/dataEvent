@@ -92,6 +92,19 @@ class Person extends Conexion{
   //AND   users.type ='Docente' AND users.status='Inactivo'
   //
 
+  public function searchPersonIdModel($personId){
+    $conexion = new Conexion();
+    $stmt = $conexion->prepare("SELECT * FROM persons  WHERE person_id=:person_id");
+    $stmt->bindParam(":person_id",$personId,PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    if (empty($result)) {
+      return 0;
+    }else{
+      return $result;
+    }
+  }
+
   public function searchDniPersonModel($dni,$tabla,$type=NULL){
       $conexion = new Conexion();
       $stmt = $conexion->prepare("SELECT * FROM $tabla
@@ -268,8 +281,8 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
           $stmt->execute();
           return $stmt->fetchAll();
           $stmt->close();
-        }    
-     
+        }
+
 
     //Editar usuarios
     //************************************************
