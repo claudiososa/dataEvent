@@ -51,6 +51,43 @@ class AjaxPerson {
     echo $guardar;
   }
 
+  public function createAllPdf($type){
+    if (isset($type)=='color') {
+        $archivoDescarga = "CertificadosColor.pdf";
+    }else{
+      $archivoDescarga = "CertificadosDatos.pdf";
+    }
+    $ver = new ControllerPerson();
+    //$lista = $ver->vistaPersonController('persons','Preceptor/a');
+    $lista = $ver->vistaPersonControllerConfirmate('persons','Confirmate');
+    $ver->borrarPersonController();
+    $pdf = new tFPDF();
+    foreach ($lista as $key => $data) {
+      $pdf->AddPage(L,A4);
+      $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
+      $pdf->AddFont('DejaVu', 'B', 'DejaVuSansCondensed-Bold.ttf', true);
+      $pdf->SetFont('DejaVu','',20);
+      if (isset($type)=='color') {
+          $pdf->Image("../../../img/certificado.jpg",0,0);
+      }
+      $nombreCompleto =$data['lastname'].", ".$data['firstname'];
+      $longitudCompleta = str_pad($nombreCompleto, 45);
+      $pdf->Ln(63);
+      $pdf->Write (7,"                     ");
+      $pdf->Cell(100,10,$nombreCompleto,0,0);
+      $pdf->Cell(70);
+      $pdf->Cell(40,10,$data['dni'],0,0,'C');
+      $pdf->Write (7," ");
+      $pdf->Write (7,"                        ");
+      $pdf->Write (7,"                                                  ");
+      $pdf->Write (7,"                                     ");
+      $nombreArchivo = $data['dni'].".pdf";
+    }
+
+    $pdf->Output("../../download/$archivoDescarga","F");
+  }
+
+
   public function createPdf($data){
     $pdf = new tFPDF();
     $pdf->AddPage(L,A4);
@@ -140,5 +177,17 @@ if (isset($_POST['personIdPrint'])) {
     //Maestro::debbugPHP($data);
   echo $data['dni'];
   $person->createPdf($data);
+  $person->createAllPdf();
+}
 
+if (isset($_POST['btnCertificadoColor'])) {
+  $person = new AjaxPerson();
+  $person->createAllPdf('color');
+  echo 'success';
+}
+
+if (isset($_POST['btnCertificadoTexto'])) {
+  $person = new AjaxPerson();
+  $person->createAllPdf();
+  echo 'success';
 }

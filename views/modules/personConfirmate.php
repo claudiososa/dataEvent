@@ -8,6 +8,8 @@ if($_SESSION["typeUser"]<>'operador'){
 <section class""id="personConfirmate">
 	<div class="container">
 		<button type="button" class="btn btn-outline-light mt-5" id="btnTable">Descargar a Excel</button>
+		<button type="button" class="btn btn-outline-light mt-5" id="btnCertificadoColor">Descargar Certificados Color</button>
+		<button type="button" class="btn btn-outline-light mt-5" id="btnCertificadoTexto">Descargar Certificados solo Datos</button>
 		<div class="row">
 			<div class="col table-responsive">
 				<table class="table table-bordered table-hover tablePerson mt-4" id="tablePerson">
@@ -19,7 +21,7 @@ if($_SESSION["typeUser"]<>'operador'){
 					    <th>DNI</th>
 			        <th>Confirmado</th>
 			        <th>Fecha Conf.</th>
-							<th>Impresión</th>
+							<th>Certificado</th>
 				    </tr>
 				  </thead>
 				  <tbody>
@@ -38,7 +40,7 @@ if($_SESSION["typeUser"]<>'operador'){
  		 			      <td>'.$item["dni"].'</td>
  		 			      <td>'.$item["confirmation"].'</td>
  		 			      <td>'.$date->format('d-m-Y').'</td>
-								<td><button class="btn btn-success" id="buttonToPrint'.$item["person_id"].'">Imprimir Certificado</button></td>
+								<td><button class="btn btn-success" id="buttonToPrint'.$item["person_id"].'">Crear Certificado</button></td>
 
 
  		 				</tr>';
