@@ -7,8 +7,11 @@ $(document).ready(function() {
       //dataType: 'json',
       data: {personIdPrint:personIdPrint}
     })
-    .done(function() {
+    .done(function(data) {
       console.log("success");
+      //alert(data)
+      let archivo = "http://localhost/eventmanager/views/download/"+data+".pdf"
+      window.open(archivo,'_self','');
     })
     .fail(function() {
       console.log("error");

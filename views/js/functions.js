@@ -32,7 +32,9 @@ function selectedProvince(name){
   var indiceActual = provinces.indexOf(name)
 
   provinces.forEach(function (element,i){
+    alert(element)
     if (i===indiceActual) {
+
     contentHmtl += `<option value="${element}" selected>${element}</option>`
     }
     contentHmtl += `<option value="${element}">${element}</option>`

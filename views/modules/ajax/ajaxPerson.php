@@ -52,48 +52,25 @@ class AjaxPerson {
   }
 
   public function createPdf($data){
-
-
-
     $pdf = new tFPDF();
-    //Maestro::debbugPHP($pdf);
     $pdf->AddPage(L,A4);
-
-    //$pdf->AddPage();
     $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
     $pdf->AddFont('DejaVu', 'B', 'DejaVuSansCondensed-Bold.ttf', true);
-
     $pdf->SetFont('DejaVu','',20);
-
     $pdf->Image("../../../img/certificado.jpg",0,0);
-    //$pdf->Image('./img/'.$datoPersona->dni.'.png',20,107,30);
-    //$pdf->Image('./img/'.$datoPersona->dni.'.png',10,107,30);
-
     $nombreCompleto =$data['lastname'].", ".$data['firstname'];
     $longitudCompleta = str_pad($nombreCompleto, 45);
-    $pdf->Ln(65);
+    $pdf->Ln(63);
     $pdf->Write (7,"                     ");
-    $pdf->Write (7,$longitudCompleta);
-    //$pdf->Write (7,$data['firstname']);
+    $pdf->Cell(100,10,$nombreCompleto,0,0);
+    $pdf->Cell(70);
+    $pdf->Cell(40,10,$data['dni'],0,0,'C');
     $pdf->Write (7," ");
-    //$pdf->Write (7,$data['lastname']);
-    // /$pdf->Ln(9); //salto de linea
     $pdf->Write (7,"                        ");
-     $pdf->Write (7,$data['dni']);
-
     $pdf->Write (7,"                                                  ");
     $pdf->Write (7,"                                     ");
-    //$pdf->Write (7,$datoPersona->persona_id);
-    //$pdf->Ln(24);//ahora salta 15 lineas
-    //$pdf->Output();
-    //echo "<script language='javascript'>window.open('constancia-copef.pdf','_self','');</script>";//para ver el archivo pdf generado
-    //exit;
-    //$pdf->Output('D','certificado.pdf');
-    $nombreArchivo = $data['lastname'].$data['dni'].".pdf";
+    $nombreArchivo = $data['dni'].".pdf";
     $pdf->Output("../../download/$nombreArchivo","F");
-
-    //echo "<script language='javascript'>window.open('certificado.pdf','_self','');</script>";//para ver el archivo pdf generado
-    //exit;
   }
 
   public function searchDni(){
@@ -161,7 +138,7 @@ if (isset($_POST['personIdPrint'])) {
 
   $data = $person->searchPersonId();
     //Maestro::debbugPHP($data);
-  echo $data;
+  echo $data['dni'];
   $person->createPdf($data);
 
 }
