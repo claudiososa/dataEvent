@@ -32,11 +32,11 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 	</div>
 
 </div>
-<section id="eventImg">
+<section id="eventImg" class="pt-5">
 	<div class="container">
-		<div class="row">
-			<div class="col">
-				<img  class="banner1 pt-3 img-fluid"src="img/fondo.jpg" alt="bannerCIENASUD2018">
+		<div class="row justify-content-md-center">
+			<div class="col-8">
+				<img  class="banner1 pt-3 img-fluid rounded mx-auto d-block"src="img/fondo.jpg" alt="bannerCIENASUD2018">
 
 			</div>
 
@@ -67,7 +67,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 ?>
 </div>
 
-<script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script>
+<!-- <script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script> -->
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#name').hide();
