@@ -7,13 +7,15 @@ if($_SESSION["typeUser"]<>'operador'){
 ?>
 <section class""id="personConfirmate">
 	<div class="container">
-		<button type="button" class="btn btn-outline-light mt-5" id="btnTable">Descargar a Excel</button>
+
+
+		<button type="button" class="btn btn-outline-light mt-5" id="btnTable" >Descargar a Excel</button>
 		<button type="button" class="btn btn-outline-light mt-5" id="btnCertificadoColor">Descargar Certificados Color</button>
 		<button type="button" class="btn btn-outline-light mt-5" id="btnCertificadoTexto">Descargar Certificados solo Datos</button>
 		<div class="row">
 			<div class="col table-responsive">
 				<table class="table table-bordered table-hover tablePerson mt-4" id="tablePerson">
-				  <thead>
+				  <thead style="background-color:#003764;color:white;">
 				    <tr>
 							<th>Id</th>
 							<th>Apellido</th>
@@ -40,7 +42,8 @@ if($_SESSION["typeUser"]<>'operador'){
  		 			      <td>'.$item["dni"].'</td>
  		 			      <td>'.$item["confirmation"].'</td>
  		 			      <td>'.$date->format('d-m-Y').'</td>
-								<td><button class="btn btn-success" id="buttonToPrint'.$item["person_id"].'">Crear Certificado</button></td>
+
+								<td><button class="btn btn-outline-info" id="buttonToPrint'.$item["person_id"].'">Crear Certificado</button></td>
 
 
  		 				</tr>';
@@ -68,9 +71,21 @@ if($_SESSION["typeUser"]<>'operador'){
 	}
 	 ?>
 <script type="text/javascript">
-$('#btnTable').click(function(event) {
-	/* Act on the event */
-	$('#tablePerson').tableExport();
+var ExportButtons = document.getElementById('tablePerson');
+
+var instance = new TableExport(ExportButtons, {
+    formats: ['xls'],
+    exportButtons: false
+});
+
+//                                        // "id" of selector    // format
+var exportData = instance.getExportData()['tablePerson']['xls'];
+
+var XLSbutton = document.getElementById('btnTable');
+
+XLSbutton.addEventListener('click', function (e) {
+    //                   // data          // mime              // name              // extension
+    instance.export2file(exportData.data, exportData.mimeType, exportData.filename, exportData.fileExtension);
 });
 
 </script>

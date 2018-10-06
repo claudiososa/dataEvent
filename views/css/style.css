@@ -229,6 +229,7 @@ span.input-group-text.dni{
   border-top-left-radius:20px;
   border-bottom-left-radius:20px;
 
+
 }
 span.input-group-text.apellido{
   background-color: white;
@@ -256,8 +257,9 @@ div.card-body.cardBodyModificarPerson{
 /*display: block;
 margin: auto;
 height: 600px;*/
-width: 100%;
-max-height: 450px;
+width: auto;
+
+max-height: 350px;
 }
 
 /*******SEARCH PERSON*******/

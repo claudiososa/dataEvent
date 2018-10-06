@@ -41,7 +41,7 @@ $(document).ready(function() {
               $('#locationRegistro').val("")
               $('#lastnameRegistro').focus()
             } else {
-              $('#dni').fo44447381cus()
+              $('#dni').focus()
               //swal("Your imaginary file is safe!");
             }
           });
@@ -115,6 +115,7 @@ $(document).ready(function() {
  */
   $("#confirmaDatos").click(function(event) {
 
+
     let eventId='1'
     let personId = $("#personIdEditar").val();
     let lastname = $("#lastnameRegistro").val();
@@ -147,6 +148,8 @@ $(document).ready(function() {
               })
               .done(function(data) {
                 //
+
+
                 resolve(data)
                 // if (data!='error') {
                 //
@@ -218,7 +221,11 @@ $(document).ready(function() {
           });
         })
       }else{
+
         return new Promise((resolve,reject) => {
+
+
+
           $.ajax({
             url: 'views/modules/ajax/ajaxPerson.php',
             type: 'POST',
@@ -230,6 +237,7 @@ $(document).ready(function() {
           })
 
         })
+
 
       }
 
@@ -249,13 +257,14 @@ $(document).ready(function() {
             .then(function (data){
               $('#tomarAsistencia').attr('disabled',false)
               eventPersonId = data
-              swal('EventManager','Datos confirmado con EXITO','success')
+              swal('EventManager','Datos confirmado con EXITO1','success')
                 .then(function(){
                     $('#tomarAsistencia').focus()
                 })
 
             })
             .catch(function (data){
+
               swal('EventManager','No se pude guardar los datos','error')
             })
         }else{
@@ -265,6 +274,12 @@ $(document).ready(function() {
 
           confirmData('1',personId,saveEventPerson,visitorId,detalleVisitorId)
           .then(function (data){
+            if (validarPersona()) {
+
+
+
+
+
             $('#tomarAsistencia').attr('disabled',false)
             eventPersonId = data
             swal('EventManager','Datos confirmado con EXITO','success')
@@ -272,11 +287,15 @@ $(document).ready(function() {
                 $('#tomarAsistencia').focus()
               })
 
+            }
           })
+
+
           .catch(function (data){
             swal('EventManager','No se pude guardar los datos','error')
           })
         }
+
       })
       .catch(error=> console.log(error + ' Noooo'))
 

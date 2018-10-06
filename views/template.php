@@ -14,7 +14,8 @@
     <script type="text/javascript" src="views/js/loginJs.js"></script>
     <script type="text/javascript" src="views/js/functions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-
+<!-- <script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script> -->
+    <script type="text/javascript" src="views/js/tableExport/xlsx.core.min.js"></script>
     <script type="text/javascript" src="views/js/tableExport/FileSaver.min.js"></script>
     <script type="text/javascript" src="views/js/tableExport/tableexport.min.js"></script>
     <!-- <script src="views/js/sweetalert.min.js"></script> -->
