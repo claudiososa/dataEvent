@@ -14,12 +14,12 @@ function validarPersona() {
   console.log(txtApellido,txtNombre,txtCorreo,txtMovil,txtProvincia)
 
   if(txtApellido == null || txtApellido.length == 0 || !letras.test(txtApellido)){
-			alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blanco');
+			alert('ERROR: El campo APELLIDOno debe ir vacío o lleno de solamente espacios en blanco,MAYUSCULAS');
 			return false;
 		}
 
   if(txtNombre == null || txtNombre.length == 0 || !letras.test(txtNombre)){
-    alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blancdfsfo');
+    alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blancO MAYUSCULAS');
     return false;
   }
 
@@ -41,7 +41,7 @@ function validarPersona() {
 
     //Test prov oblig
   if(  txtProvincia == 'SIN REGISTRAR' ) {
-      alert('ERROR: Debe escribir un A PROV');
+      alert('ERROR: Debe SEL A PROV');
     return false;
   }
   // Si el script ha llegado a este punto, todas las condiciones

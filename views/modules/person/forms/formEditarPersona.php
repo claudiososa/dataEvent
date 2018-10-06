@@ -16,7 +16,7 @@
 
         <div class="form-group formGroupPerson">
           <!-- <label for="lastnameRegistro">Apellido:</label> -->
-          <input type="text" class="form-control personLastName is-valid text-uppercase" placeholder="Apellido" name="lastnameRegistro"  value='<?php echo  $item["lastname"]  ?>'	id="lastnameRegistro"  pattern="[A-Z]+" required onkeypress="return changeToUpperCase(event,this)">
+          <input type="text" class="form-control personLastName is-valid" placeholder="Apellido" name="lastnameRegistro"  value='<?php echo  $item["lastname"]  ?>'	id="lastnameRegistro"  pattern="[A-Z]+" required onkeypress="return changeToUpperCase(event,this)">
         </div>
         <div class="invalid-feedback lastname">
           Ingrese Apellido: Solo letras.
