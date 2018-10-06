@@ -3,7 +3,7 @@
   <div class="card cardFormPerson">
     <div class="card-body cardBodyPerson">
 
-      <form method="post" onsubmit="return validarRegistro()" class="formPerson " id="formPerson">
+      <form method="post" onsubmit="return validacion()" class="formPerson " id="formPerson">
         <input type="hidden" id="saveStatus" name="saveStatus" value='edit'>
         <input type="hidden" id="personIdEditar" name="personIdEditar" value='<?php echo $item["person_id"] ?>'>
 
@@ -16,7 +16,7 @@
 
         <div class="form-group formGroupPerson">
           <!-- <label for="lastnameRegistro">Apellido:</label> -->
-          <input type="text" class="form-control personLastName is-valid text-uppercase" placeholder="Apellido" name="lastnameRegistro"  value='<?php echo  $item["lastname"]  ?>'	id="lastnameRegistro"  required onkeypress="return changeToUpperCase(event,this)">
+          <input type="text" class="form-control personLastName is-valid text-uppercase" placeholder="Apellido" name="lastnameRegistro"  value='<?php echo  $item["lastname"]  ?>'	id="lastnameRegistro"  pattern="[A-Z]+" required onkeypress="return changeToUpperCase(event,this)">
         </div>
         <div class="invalid-feedback lastname">
           Ingrese Apellido: Solo letras.
@@ -119,7 +119,7 @@
     </div>
   </div>
 <!-- </div> -->
-<script type="text/javascript" src="views/modules/person/js/validationPerson1.js"></script>
+<script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script>
 <script type="text/javascript">
 function changeToUpperCase(event,obj) {
     charValue = (document.all) ? event.keyCode : event.which;
