@@ -1,3 +1,30 @@
+function validarDni() {
+  var numeros = /^[0-9]+$/;
+  let txtDni = document.getElementById('dni').value
+  if (txtDni === "" || txtDni < 1000000 || txtDni > 99999999 || !numeros.test(txtDni)) {
+    //swal('Atencion','El Dni ingresado no es correcto','error')
+
+    alert('El Dni ingresado no es correcto')
+    return false
+  }else{
+    return true
+  }
+}
+
+function validarLastname(){
+
+  let letras =  /^[A-Z_\s]+$/g
+
+  let txtApellido = document.getElementById("lastnameRegistro").value;
+  //debugger
+  //alert(txtApellido)
+  if(!letras.test(txtApellido)){
+			// alert('ERROR: El campo APELLIDOno debe ir vacío o lleno de solamente espacios en blanco,MAYUSCULAS');
+      // $('#lastnameRegistro').focus()
+			return false;
+	}
+}
+
 function validarPersona() {
 
   let letras=  /^[A-Z_\s]+$/;
@@ -13,13 +40,19 @@ function validarPersona() {
 
   console.log(txtApellido,txtNombre,txtCorreo,txtMovil,txtProvincia)
 
-  if(txtApellido == null || txtApellido.length == 0 || !letras.test(txtApellido)){
-			alert('ERROR: El campo APELLIDOno debe ir vacío o lleno de solamente espacios en blanco,MAYUSCULAS');
-			return false;
+  if(txtApellido == "" || (txtApellido.trim()).length == 0  || !letras.test(txtApellido)){
+      swal('Atencion','Apellido no valido, por favor revisar el dato ingresado, Solo acepta MAYUSCULAS','error')
+      .then((value) => {
+        $('#lastnameRegistro').focus()
+      });
+      return false;
 		}
 
-  if(txtNombre == null || txtNombre.length == 0 || !letras.test(txtNombre)){
-    alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blancO MAYUSCULAS');
+  if(txtNombre == "" || (txtNombre.trim()).length == 0  || !letras.test(txtNombre)){
+    swal('Atencion','Nombre no valido, por favor revisar el dato ingresado, Solo acepta MAYUSCULAS','error')
+    .then((value) => {
+      $('#firstnameRegistro').focus()
+    });
     return false;
   }
 
@@ -41,7 +74,10 @@ function validarPersona() {
 
     //Test prov oblig
   if(  txtProvincia == 'SIN REGISTRAR' ) {
-      alert('ERROR: Debe SEL A PROV');
+    swal('Atencion','Debe seleccionar una provincia','error')
+    .then((value) => {
+      $('#selProvinceRegistro').focus()
+    });
     return false;
   }
   // Si el script ha llegado a este punto, todas las condiciones

@@ -6,76 +6,89 @@ $(document).ready(function() {
   return false;
   });
 
+  $('#dni').focus(function(event) {
+    $('#eventImg').fadeIn(300);
+    $('#formEditPerson').fadeOut(300);
+  });
+
   $('#btnSearchPerson').click( function (event){// Event click for Botton 'Buscar'
       let dni = $("#dni").val()
-      let searchDni = 'searchDni'
 
-      $.ajax({
-        url: 'views/modules/ajax/ajaxPerson.php',
-        type: 'POST',
-        dataType: 'json',
-        data: {dni:dni,searchDni:searchDni}
-      })
-      .done(function(data) {
-        console.log("successBtnValidar");
-        if (data=='0') {//sino existe persona con el dni ingresado
+      if (validarDni()){
+        let searchDni = 'searchDni'
 
-        swal({
-            title: "El DNI ingresado no EXISTE",
-            text: "Desea agregar una nueva Persona?",
-            icon: "warning",
-            buttons: ["Cancelar", "Si"],
-            dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              $('#eventImg').fadeOut(0);
-              $('#formEditPerson').fadeIn(900);
-              $('#saveStatus').val("new")
-              $('#personIdEditar').val("")
-              $('#dniRegistro').val($('#dni').val())
-              $('#lastnameRegistro').val("")
-              $('#firstnameRegistro').val("")
-              $('#emailRegistro').val("")
-              $('#movilRegistro').val("")
-              $('#locationRegistro').val("")
-              $('#lastnameRegistro').focus()
-            } else {
-              $('#dni').focus()
-              //swal("Your imaginary file is safe!");
+        $.ajax({
+          url: 'views/modules/ajax/ajaxPerson.php',
+          type: 'POST',
+          dataType: 'json',
+          data: {dni:dni,searchDni:searchDni}
+        })
+        .done(function(data) {
+          console.log("successBtnValidar");
+          if (data=='0') {//sino existe persona con el dni ingresado
+
+          swal({
+              title: "El DNI ingresado no EXISTE",
+              text: "Desea agregar una nueva Persona?",
+              icon: "warning",
+              buttons: ["Cancelar", "Si"],
+              dangerMode: true,
+            })
+            .then((willDelete) => {
+              if (willDelete) {
+                $('#eventImg').fadeOut(0);
+                $('#formEditPerson').fadeIn(900);
+                $('#saveStatus').val("new")
+                $('#personIdEditar').val("")
+                $('#dniRegistro').val($('#dni').val())
+                $('#lastnameRegistro').val("")
+                $('#firstnameRegistro').val("")
+                $('#emailRegistro').val("")
+                $('#movilRegistro').val("")
+                $('#locationRegistro').val("")
+                $('#lastnameRegistro').focus()
+              } else {
+                $('#dni').focus()
+                //swal("Your imaginary file is safe!");
+              }
+            });
+          }else{//devuele el person_id de la persona correspondiente al DNI
+            //debugger
+            $('#eventImg').fadeOut(0);
+            $('#formEditPerson').fadeIn(900);
+            $('#saveStatus').val("edit")
+            $('#confirmaDatos').focus()
+            $("#selProvinceRegistro").empty()
+            for (let item of data) {
+              $('#personIdEditar').val(item.person_id)
+              $('#dniRegistro').val(item.dni)
+              $('#lastnameRegistro').val(item.lastname)
+              $('#firstnameRegistro').val(item.firstname)
+              $('#emailRegistro').val(item.email)
+              $('#movilRegistro').val(item.movil)
+              let htmlSelProvince = selectedProvince(item.province)
+              $(htmlSelProvince).appendTo('#selProvinceRegistro')
+              $('#locationRegistro').val(item.location)
+              $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
+              $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
+
             }
-          });
-        }else{//devuele el person_id de la persona correspondiente al DNI
-          //debugger
-          $('#eventImg').fadeOut(0);
-          $('#formEditPerson').fadeIn(900);
-          $('#saveStatus').val("edit")
-          $('#confirmaDatos').focus()
-          $("#selProvinceRegistro").empty()
-          for (let item of data) {
-            $('#personIdEditar').val(item.person_id)
-            $('#dniRegistro').val(item.dni)
-            $('#lastnameRegistro').val(item.lastname)
-            $('#firstnameRegistro').val(item.firstname)
-            $('#emailRegistro').val(item.email)
-            $('#movilRegistro').val(item.movil)
-            let htmlSelProvince = selectedProvince(item.province)
-            $(htmlSelProvince).appendTo('#selProvinceRegistro')
-            $('#locationRegistro').val(item.location)
-            $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
-            $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
 
           }
 
-        }
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
 
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
-      });
+      }else{
+        $('#dni').focus()
+        return false
+      }
+
 
     })// End click for Botton 'Buscar'
 
@@ -116,6 +129,8 @@ $(document).ready(function() {
   $("#confirmaDatos").click(function(event) {
 
 
+    if(validarPersona()){
+
     let eventId='1'
     let personId = $("#personIdEditar").val();
     let lastname = $("#lastnameRegistro").val();
@@ -123,12 +138,10 @@ $(document).ready(function() {
     let dni = $("#dniRegistro").val();
     let email = $("#emailRegistro").val();
     let movil = $("#movilRegistro").val();
-    //let location = $("#firstnameRegistro").val();
     let saveStatus = $("#saveStatus").val();
     let location = $('#locationRegistro').val()
     let province = $('#selProvinceRegistro').val()
 
-    //alert(personId)
     /******************************************/
         function  confirmData(eventId,personId,saveEventPerson,visitorId,detalleVisitorId){
 
@@ -147,16 +160,7 @@ $(document).ready(function() {
                 data: {newEventPerson:newEventPerson,eventIdNew:eventId,personIdNew:personId,visitorId:visitorId,detalleVisitorId:detalleVisitorId,confirmation:confirmation}
               })
               .done(function(data) {
-                //
-
-
                 resolve(data)
-                // if (data!='error') {
-                //
-                // }else{
-                //   reject(data)
-                // }
-
               })
               .fail(function() {
                 console.log("error");
@@ -274,7 +278,7 @@ $(document).ready(function() {
 
           confirmData('1',personId,saveEventPerson,visitorId,detalleVisitorId)
           .then(function (data){
-            if (validarPersona()) {
+            //if (validarPersona()) {
 
 
 
@@ -287,7 +291,7 @@ $(document).ready(function() {
                 $('#tomarAsistencia').focus()
               })
 
-            }
+            //}
           })
 
 
@@ -299,8 +303,7 @@ $(document).ready(function() {
       })
       .catch(error=> console.log(error + ' Noooo'))
 
-
+}
   });//End event clic for "Confirmar datos"
-
 
 });

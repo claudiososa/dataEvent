@@ -49,7 +49,7 @@
         <div class="form-inline">
           <label for="direccionRegistro">Provincia:</label>
           <select class="form-control personProvincia" id="selProvinceRegistro">
-             <option value="SIN REGISTRAR">Seleccione</option>
+             <option value="SIN REGISTRAR">SIN REGISTRAR</option>
              <option value="BUENOS AIRES">Bs. As.</option>
              <option value="CATAMARCA">Catamarca</option>
              <option value="CHACO">Chaco</option>
@@ -119,17 +119,17 @@
     </div>
   </div>
 <!-- </div> -->
-<script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script>
+<!-- <script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script> -->
 <script type="text/javascript">
-function changeToUpperCase(event,obj) {
-    charValue = (document.all) ? event.keyCode : event.which;
-    if (charValue!="8" && charValue!="0" && charValue != "27"){
-        obj.value += String.fromCharCode(charValue).toUpperCase();
-        return false;
-    }else{
-        return true;
-    }
-}
+// function changeToUpperCase(event,obj) {
+//     charValue = (document.all) ? event.keyCode : event.which;
+//     if (charValue!="8" && charValue!="0" && charValue != "27"){
+//         obj.value += String.fromCharCode(charValue).toUpperCase();
+//         return false;
+//     }else{
+//         return true;
+//     }
+// }
 
 </script>
 <!-- <script>

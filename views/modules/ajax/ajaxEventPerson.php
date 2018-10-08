@@ -62,18 +62,22 @@ class AjaxEventPerson {
 if (isset($_POST['personId'])) {
 
   $dato = new AjaxEventPerson();
+
+  $dateConfirmation = date("Y-m-d h:i:s");
+
   $dato->personId = $_POST['personId'];
   $dato->eventId = $_POST['eventId'];
   $dato->visitorId = $_POST['visitorId'];
   $dato->detalleVisitorId = $_POST['detalleVisitorId'];
+  $dato->dateConfirmation = $dateConfirmation;
 
   $eventPersonId = $dato->searchEventPersonId();
 
   if ($eventPersonId) {
-    $eventPerson = new AjaxEventPerson($eventPersonId['id'],null,null,$_POST['visitorId'],$_POST['detalleVisitorId']);
+    $eventPerson = new AjaxEventPerson($eventPersonId['id'],null,null,$_POST['visitorId'],$_POST['detalleVisitorId'],$dateConfirmation);
     //$data = $eventPerson->saveConfirm();
 
-    $confirm = ControllerEventPerson::saveConfirmController($eventPersonId['id'],$_POST['visitorId'],$_POST['detalleVisitorId']);
+    $confirm = ControllerEventPerson::saveConfirmController($eventPersonId['id'],$_POST['visitorId'],$_POST['detalleVisitorId'],$dateConfirmation);
 
     if ($confirm) {
       echo $confirm;
@@ -89,7 +93,7 @@ if (isset($_POST['personId'])) {
 
 if (isset($_POST['newEventPerson'])) {
   //Maestro::debbugPHP($_POST);
-  $dateConfirmation = date("Y-m-d");
+  $dateConfirmation = date("Y-m-d h:i:s");
 
   $dato = new AjaxEventPerson();
   $dato->personId = $_POST['personIdNew'];

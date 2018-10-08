@@ -7,8 +7,8 @@ class ControllerEventPerson{
 		return $result;
 	}
 
-	public function saveConfirmController($id,$visitorId,$detalleVisitorId){
-		$update = EventPerson::saveConfirmModel($id,$visitorId,$detalleVisitorId);
+	public function saveConfirmController($id,$visitorId,$detalleVisitorId,$dateConfirmation){
+		$update = EventPerson::saveConfirmModel($id,$visitorId,$detalleVisitorId,$dateConfirmation);
 		return $update;
 	}
 

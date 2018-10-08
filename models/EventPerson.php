@@ -12,12 +12,14 @@ class EventPerson extends Conexion{
     return $stmt->fetch();
   }
 
-  public function saveConfirmModel($id,$visitorId,$detalleVisitorId){
+  public function saveConfirmModel($id,$visitorId,$detalleVisitorId,$dateConfirmation){
     $conexion = new Conexion();
-    $stmt = $conexion->prepare("UPDATE event_persons SET visitor_id=:visitor_id,detalle_visitor_id=:detalle_visitor_id,confirmation='SI' WHERE id=:id");
+    $stmt = $conexion->prepare("UPDATE event_persons SET visitor_id=:visitor_id,detalle_visitor_id=:detalle_visitor_id,confirmation='SI',date_confirmation=:dateConfirmation
+                                WHERE id=:id");
     $stmt->bindParam(":id",$id,PDO::PARAM_INT);
     $stmt->bindParam(":visitor_id",$visitorId,PDO::PARAM_INT);
     $stmt->bindParam(":detalle_visitor_id",$detalleVisitorId,PDO::PARAM_INT);
+    $stmt->bindParam(":dateConfirmation",$dateConfirmation);
     if ($stmt->execute()) {
       return $id;
     }else{

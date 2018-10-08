@@ -31,19 +31,21 @@ if($_SESSION["typeUser"]<>'operador'){
  		 			$ver = new ControllerPerson();
  		 			//$lista = $ver->vistaPersonController('persons','Preceptor/a');
  		 			$lista = $ver->vistaPersonControllerConfirmate('persons','Confirmate');
+					//var_dump($lista);
  		 			$ver->borrarPersonController();
 
  		 			foreach ($lista as $key => $item) {
 						$date = new DateTime($item["date_confirmation"]);
+
  		 				echo '<tr>
  		 				  <td>'.$item["person_id"].'</td>
  		 			      <td>'.$item["lastname"].'</td>
  		 			      <td>'.$item["firstname"].'</td>
  		 			      <td>'.$item["dni"].'</td>
- 		 			      <td>'.$item["confirmation"].'</td>
- 		 			      <td>'.$date->format('d-m-Y').'</td>
+								<td>'.$item["confirmation"].'</td>
+								<td>'.$date->format('d-m-Y').'</td>
 
-								<td><button class="btn btn-outline-info" id="buttonToPrint'.$item["person_id"].'">Crear Certificado</button></td>
+								<td><button class="btn btn-outline-info" id="buttonToPrint'.$item["person_id"].'">Generar Certificado</button></td>
 
 
  		 				</tr>';

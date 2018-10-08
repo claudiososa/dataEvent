@@ -67,7 +67,7 @@ if($_SESSION["typeUser"]<>'Admin' && $_SESSION["typeUser"]<>'operador'){
 ?>
 </div>
 
-<!-- <script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script> -->
+
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#name').hide();

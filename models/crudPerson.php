@@ -94,7 +94,7 @@ class Person extends Conexion{
 
   public function searchPersonIdModel($personId){
     $conexion = new Conexion();
-    $stmt = $conexion->prepare("SELECT * FROM persons  WHERE person_id=:person_id");
+    $stmt = $conexion->prepare("SELECT lastname,firstname,format(persons.dni,0,'de_DE') AS dni FROM persons  WHERE person_id=:person_id");
     $stmt->bindParam(":person_id",$personId,PDO::PARAM_INT);
     $stmt->execute();
     $result = $stmt->fetch();
@@ -263,15 +263,14 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
     // **************************************************
 
         public function vistaPersonModelConfirmate($tabla,$tipo){
+          //persons.person_id,persons.lastname,persons.firstanme,persons.dni,event_persons.confirmation,event_persons.date_confirmation
           $conexion = new Conexion();
           if(isset($tipo)){
-            $sentencia = "SELECT * FROM persons INNER JOIN event_persons ON (persons.person_id = event_persons.person_id) WHERE event_persons.confirmation = 'SI' AND event_persons.event_id = 1 ";
-           // $sentencia .= $tabla;
-           // $sentencia .= ' INNER JOIN event_persons ON (';
-            //$sentencia .= $tabla;
-           // $sentencia .= '.person_id=event_persons.person_id)';
-           // $sentencia .= ' WHERE event_persons.confirmation= SI"';
-            //$sentencia .= $tipo.'"';
+            $sentencia = "SELECT persons.person_id,persons.lastname,persons.firstname,format(persons.dni,0,'de_DE') AS dni,event_persons.confirmation,event_persons.date_confirmation
+                          FROM persons
+                          INNER JOIN event_persons
+                          ON (persons.person_id = event_persons.person_id)
+                          WHERE event_persons.confirmation = 'SI' AND event_persons.event_id = 1 ";
             $stmt = $conexion->prepare($sentencia);
           }else{
             $stmt = $conexion->prepare("SELECT * FROM $tabla ");
