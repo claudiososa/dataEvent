@@ -13,7 +13,7 @@ function validarDni() {
 
 function validarLastname(){
 
-  let letras =  /^[A-Z_\s]+$/g
+  let letras =  /^[A-ZÁÉÍÓÚÑÜ_\s]+$/
 
   let txtApellido = document.getElementById("lastnameRegistro").value;
   //debugger
@@ -27,7 +27,7 @@ function validarLastname(){
 
 function validarPersona() {
 
-  let letras=  /^[A-Z_\s]+$/;
+  let letras=  /^[A-ZÁÉÍÓÚÑÜ_\s]+$/
 
   let txtApellido = document.getElementById("lastnameRegistro").value;
   let txtNombre = document.getElementById("firstnameRegistro").value;

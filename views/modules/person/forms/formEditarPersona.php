@@ -121,15 +121,15 @@
 <!-- </div> -->
 <!-- <script type="text/javascript" src="views/modules/person/js/validationPerson.js"></script> -->
 <script type="text/javascript">
-// function changeToUpperCase(event,obj) {
-//     charValue = (document.all) ? event.keyCode : event.which;
-//     if (charValue!="8" && charValue!="0" && charValue != "27"){
-//         obj.value += String.fromCharCode(charValue).toUpperCase();
-//         return false;
-//     }else{
-//         return true;
-//     }
-// }
+function changeToUpperCase(event,obj) {
+    charValue = (document.all) ? event.keyCode : event.which;
+    if (charValue!="8" && charValue!="0" && charValue != "27"){
+        obj.value += String.fromCharCode(charValue).toUpperCase();
+        return false;
+    }else{
+        return true;
+    }
+}
 
 </script>
 <!-- <script>

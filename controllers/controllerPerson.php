@@ -35,6 +35,10 @@ class ControllerPerson{
 	}
 
 
+	public function attendacePersonController($dateA,$eventPersonId){
+		$result = Person::attendacePersonModel($dateA,$eventPersonId);
+		return $result;
+	}
 	/**
 	 * Buscar personas
 	 */

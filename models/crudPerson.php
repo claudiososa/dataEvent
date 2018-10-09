@@ -105,6 +105,28 @@ class Person extends Conexion{
     }
   }
 
+  public function attendacePersonModel($dateA,$eventPersonId){
+    $conexion = new Conexion();
+    $stmt = $dateA.'---'.$eventPersonId;
+    $stmt = $conexion->prepare("SELECT persons.person_id,persons.lastname,persons.firstname,persons.dni,attendances.dateA FROM attendances
+                                INNER JOIN event_persons
+                                ON event_persons.id = attendances.event_person_id
+                                INNER JOIN persons
+                                ON persons.person_id = event_persons.person_id
+                                WHERE attendances.dateA=:dateA AND attendances.event_person_id=:eventPersonId");
+    $stmt->bindParam(':dateA',$dateA);
+    $stmt->bindParam(':eventPersonId',$eventPersonId,PDO::PARAM_INT);
+    $stmt->execute();
+    
+    $result = $stmt->fetchAll();
+
+    if (empty($result)) {
+      return 'Ausente';
+    }else{
+      return 'Presente';
+    }
+  }
+
   public function searchDniPersonModel($dni,$tabla,$type=NULL){
       $conexion = new Conexion();
       $stmt = $conexion->prepare("SELECT * FROM $tabla
@@ -266,7 +288,7 @@ public function searchDNIModel($dni,$tabla,$type=NULL){
           //persons.person_id,persons.lastname,persons.firstanme,persons.dni,event_persons.confirmation,event_persons.date_confirmation
           $conexion = new Conexion();
           if(isset($tipo)){
-            $sentencia = "SELECT persons.person_id,persons.lastname,persons.firstname,format(persons.dni,0,'de_DE') AS dni,event_persons.confirmation,event_persons.date_confirmation
+            $sentencia = "SELECT persons.person_id,persons.lastname,persons.firstname,format(persons.dni,0,'de_DE') AS dni,event_persons.id,event_persons.confirmation,event_persons.date_confirmation
                           FROM persons
                           INNER JOIN event_persons
                           ON (persons.person_id = event_persons.person_id)

@@ -59,6 +59,7 @@ $(document).ready(function() {
             $('#saveStatus').val("edit")
             $('#confirmaDatos').focus()
             $("#selProvinceRegistro").empty()
+
             for (let item of data) {
               $('#personIdEditar').val(item.person_id)
               $('#dniRegistro').val(item.dni)
@@ -71,7 +72,19 @@ $(document).ready(function() {
               $('#locationRegistro').val(item.location)
               $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
               $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
-
+              if (item.confirmation=="SI") {
+                $('#confirmaDatos').removeClass('btnConfirmardatos')
+                $('#confirmaDatos').removeClass('btn-outline-info')
+                $('#confirmaDatos').addClass('btn-success')
+                $('#tomarAsistencia').attr('disabled',false).focus()
+                eventPersonId = item.person_id
+                //$('#tomarAsistencia').focus()
+              }else{
+                $('#confirmaDatos').removeClass('btn-success')
+                $('#confirmaDatos').addClass('btnConfirmardatos')
+                $('#confirmaDatos').addClass('btn-outline-info')
+                $('#tomarAsistencia').attr('disabled',true)
+              }
             }
 
           }
@@ -276,7 +289,7 @@ $(document).ready(function() {
           let visitorId = $('#selPersonTipo').val()
           let detalleVisitorId = $('#selPersonNivel').val()
 
-          confirmData('1',personId,saveEventPerson,visitorId,detalleVisitorId)
+          confirmData('1',data,saveEventPerson,visitorId,detalleVisitorId)
           .then(function (data){
             //if (validarPersona()) {
 

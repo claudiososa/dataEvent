@@ -51,6 +51,9 @@ class Paginas{
 		}else if ($enlaces == "personConfirmate"){
 
 			$module =  "views/modules/".$enlaces.".php";
+		}else if ($enlaces == "personAttendance"){
+
+			$module =  "views/modules/person/".$enlaces.".php";
 
 
 		}else{
