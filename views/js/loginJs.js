@@ -47,6 +47,15 @@ $(document).ready(function() {
                 $('#movilRegistro').val("")
                 $('#locationRegistro').val("")
                 $('#lastnameRegistro').focus()
+                $("#selPersonTipo").empty()
+                $("#selPersonNivel").empty()
+
+                let htmlSelPersonTipo = selectedPersonTipoEmpty()
+                $(htmlSelPersonTipo).appendTo('#selPersonTipo')
+
+                let htmlSelPersonNivel = selectedPersonNivelEmpty()
+                $(htmlSelPersonNivel).appendTo('#selPersonNivel')
+
               } else {
                 $('#dni').focus()
                 //swal("Your imaginary file is safe!");
@@ -59,6 +68,8 @@ $(document).ready(function() {
             $('#saveStatus').val("edit")
             $('#confirmaDatos').focus()
             $("#selProvinceRegistro").empty()
+            $("#selPersonTipo").empty()
+            $("#selPersonNivel").empty()
 
             for (let item of data) {
               $('#personIdEditar').val(item.person_id)
@@ -68,10 +79,16 @@ $(document).ready(function() {
               $('#emailRegistro').val(item.email)
               $('#movilRegistro').val(item.movil)
               let htmlSelProvince = selectedProvince(item.province)
+
               $(htmlSelProvince).appendTo('#selProvinceRegistro')
               $('#locationRegistro').val(item.location)
-              $("#selPersonTipo option[value="+item.visitor_id+"]").attr('selected', 'selected');
-              $("#selPersonNivel option[value="+item.detalle_visitor_id+"]").attr('selected', 'selected');
+
+              let htmlSelPersonTipo = selectedPersonTipo(item.visitor_id)
+              $(htmlSelPersonTipo).appendTo('#selPersonTipo')
+
+              let htmlSelPersonNivel = selectedPersonNivel(item.detalle_visitor_id)
+              $(htmlSelPersonNivel).appendTo('#selPersonNivel')
+
               if (item.confirmation=="SI") {
                 $('#confirmaDatos').removeClass('btnConfirmardatos')
                 $('#confirmaDatos').removeClass('btn-outline-info')
