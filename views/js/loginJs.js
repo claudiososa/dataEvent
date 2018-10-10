@@ -94,7 +94,7 @@ $(document).ready(function() {
                 $('#confirmaDatos').removeClass('btn-outline-info')
                 $('#confirmaDatos').addClass('btn-success')
                 $('#tomarAsistencia').attr('disabled',false).focus()
-                eventPersonId = item.person_id
+                eventPersonId = item.id
                 //$('#tomarAsistencia').focus()
               }else{
                 $('#confirmaDatos').removeClass('btn-success')
@@ -309,11 +309,6 @@ $(document).ready(function() {
 
           confirmData('1',personId,saveEventPerson,visitorId,detalleVisitorId)
           .then(function (data){
-            //if (validarPersona()) {
-
-
-
-
 
             $('#tomarAsistencia').attr('disabled',false)
             eventPersonId = data
