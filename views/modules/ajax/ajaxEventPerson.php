@@ -72,7 +72,7 @@ if (isset($_POST['personId'])) {
   $dato->dateConfirmation = $dateConfirmation;
 
   $eventPersonId = $dato->searchEventPersonId();
-
+    Maestro::debbugPHP($eventPersonId);
   if ($eventPersonId) {
     $eventPerson = new AjaxEventPerson($eventPersonId['id'],null,null,$_POST['visitorId'],$_POST['detalleVisitorId'],$dateConfirmation);
     //$data = $eventPerson->saveConfirm();

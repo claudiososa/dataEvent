@@ -163,6 +163,7 @@ $(document).ready(function() {
 
     let eventId='1'
     let personId = $("#personIdEditar").val();
+
     let lastname = $("#lastnameRegistro").val();
     let firstname = $("#firstnameRegistro").val();
     let dni = $("#dniRegistro").val();
@@ -174,7 +175,7 @@ $(document).ready(function() {
 
     /******************************************/
         function  confirmData(eventId,personId,saveEventPerson,visitorId,detalleVisitorId){
-
+          alert(eventId+'---'+personId+'---'+saveEventPerson+'---'+visitorId+'---'+detalleVisitorId)
           if (saveEventPerson=='1') {
 
             return new Promise((resolve,reject) => {
@@ -306,7 +307,7 @@ $(document).ready(function() {
           let visitorId = $('#selPersonTipo').val()
           let detalleVisitorId = $('#selPersonNivel').val()
 
-          confirmData('1',data,saveEventPerson,visitorId,detalleVisitorId)
+          confirmData('1',personId,saveEventPerson,visitorId,detalleVisitorId)
           .then(function (data){
             //if (validarPersona()) {
 
