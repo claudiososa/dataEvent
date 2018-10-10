@@ -175,7 +175,7 @@ $(document).ready(function() {
 
     /******************************************/
         function  confirmData(eventId,personId,saveEventPerson,visitorId,detalleVisitorId){
-          alert(eventId+'---'+personId+'---'+saveEventPerson+'---'+visitorId+'---'+detalleVisitorId)
+          //alert(eventId+'---'+personId+'---'+saveEventPerson+'---'+visitorId+'---'+detalleVisitorId)
           if (saveEventPerson=='1') {
 
             return new Promise((resolve,reject) => {
