@@ -96,7 +96,10 @@ function selectedPersonNivel(name){
     1:'Inicial',
     2:'Primario',
     3:'Secundario',
-    4:'Técnica'
+    4:'Técnica',
+    5:'Superior',
+    6:'Otros',
+
   }
 
   for (var numero in nivel){
@@ -116,13 +119,15 @@ function selectedPersonNivelEmpty(){
     1:'Inicial',
     2:'Primario',
     3:'Secundario',
-    4:'Técnica'
+    4:'Técnica',
+    5:'Superior',
+    6:'Otros',
   }
 
   for (var numero in nivel){
        contentHmtl += `<option value="${numero}">${nivel[numero]}</option>`
   }
-  
+
   return contentHmtl
 }
 

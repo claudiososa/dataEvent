@@ -292,7 +292,7 @@ $(document).ready(function() {
         if (saveStatus=="new") {
           let visitorId = $('#selPersonTipo').val()
           let detalleVisitorId = $('#selPersonNivel').val()
-
+      
           saveEventPerson = '1'
           confirmData('1',data,saveEventPerson,visitorId,detalleVisitorId)
           //confirmData('1',personId)
